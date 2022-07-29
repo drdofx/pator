@@ -1,4 +1,4 @@
-include pator/schema.sql
+include pator/database/schema.sql
 graft pator/static
 graft pator/templates
 global-exclude *.pyc
