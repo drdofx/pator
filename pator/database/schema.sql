@@ -8,21 +8,21 @@ DROP TABLE IF EXISTS tutor;
 DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
-    NIM CHAR(10) PRIMARY KEY,
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    NIM CHAR(10) UNIQUE NOT NULL,
     username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     prodi VARCHAR(100) NOT NULL,
-    angkatan INT, 
-    has_graduated BOOLEAN NOT NULL
+    angkatan INT
 );
 
 CREATE TABLE tutee (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     average_rating_given TINYINT, 
-    user_nim CHAR(10) NOT NULL,
-    FOREIGN KEY (user_nim) REFERENCES user (NIM)
+    user_id BIGINT UNIQUE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
 );
 
 CREATE TABLE tutor (
@@ -30,8 +30,8 @@ CREATE TABLE tutor (
     number_of_unique_tutee INT,
     self_description LONGTEXT,
     average_rating TINYINT,
-    user_nim CHAR(10) NOT NULL,
-    FOREIGN KEY (user_nim) REFERENCES user (NIM)
+    user_id BIGINT UNIQUE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
 );
 
 CREATE TABLE course (

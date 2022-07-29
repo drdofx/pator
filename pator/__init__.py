@@ -11,8 +11,11 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    from .blueprints import auth 
+    app.register_blueprint(auth.bp)
+
     # a simple page that says hello
-    @app.route('/hello')
+    @app.route('/test')
     def hello():
         cursor = db.get_db().cursor(dictionary=True)
         cursor.execute('SELECT * FROM test')
