@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='assests/images/pator.png.png') }}" alt="logo" width="150px">
+      </a> 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Kategori</a>
+            <div class="dropdown-menu">
+              <ul id="submenu-drop">
+                <li>Hubungan Internasional</li>
+                <li>Psikologi</li>
+                <li>Desain Komunikasi Visual</li>
+                <li>Desain Produk</li>
+                <li>Ilmu Komunikasi</li>
+                <li>Teknik Informatika</li>
+                <li>Matakuliah Umum</li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/hackathon/signup.html">Tentang</a>
+          </li>
+        </ul>
+        {% if request.url_rule.endpoint != "auth.register" %}
+            <div class="daftar">
+                <a href="{{ url_for('auth.register') }}" class="btn btn-daftar">Daftar</a>
+            </div>
+        {% endif %}
+        <div class="masuk">
+          <button id="show-login" class="btn-masuk" onclick="showPopup()">Masuk</button>
+        </div>
+        <div class="popup">
+          <div class="close-btn" onclick="closePopup()">&times;</div>
+          <div class="form">
+            <h2>Masuk</h2>
+            <div class="form-element">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="Masukan email">
+            </div>
+            <div class="form-element">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Masukan email">
+            </div>
+            <div class="form-element">
+              <input type="checkbox" id="remember-me" placeholder="Masukan email">
+              <label for="remember-me">Remember me</label>
+            </div>
+            <div class="form-element">
+              <button class="btn">Masuk</button>
+            </div>
+            <div class="form-element">
+              <button class="btn btn-google"> <span><img src="{{ url_for('static', filename='assests/images/google.png') }}" alt="google" width="35px"></span> Masuk dengan google</button>
+            </div>
+            <div class="form-element">
+              <a href="#">Forgot password</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</nav>

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 from pator.blueprints.auth import get_user, login_required
 
@@ -13,8 +13,15 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
-    from .blueprints import auth 
+    from .blueprints import auth, tutor
     app.register_blueprint(auth.bp)
+    app.register_blueprint(tutor.bp)
+
+    # index page
+    @app.route('/')
+    def index():
+        print(request.url_rule.endpoint)
+        return render_template('index.html')
 
     # a simple page that says hello
     @app.route('/test')

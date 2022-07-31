@@ -1,25 +1,31 @@
 {% extends 'base.html' %}
 
-{% block header %}
-  <h1>{% block title %}Register{% endblock %}</h1>
-{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <label for="nim">nim</label>
-    <input name="nim" id="nim" required>
-    <label for="name">name</label>
-    <input name="name" id="name" required>
-    <label for="email">email</label>
-    <input name="email" id="email" required>
-    <label for="prodi">prodi</label>
-    <input name="prodi" id="prodi" required>
-    <label for="angkatan">angkatan</label>
-    <input type="number" name="angkatan" id="angkatan" required>
-    <input type="submit" value="Register">
-  </form>
+<section class="registration d-flex flex-column justify-content-center align-items-center">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 mb-3">
+              <div class="card">
+                  <div class="card-body">
+                      <form id="loginForm" class="register" action="connect.php" method="post">
+                          <label for="fullName">Nama lengkap</label>
+                          <input id="fullName" type="name" name="fullName" placeholder="Masukan nama lengkap" required>
+                          <label for="nim">NIM</label>
+                          <input id="nim" type="text" name="nim" placeholder="Masukan NIM" required>
+                          <label for="prodi">Prodi</label>
+                          <input id="prodi" type="number" name="prodi" placeholder="Masukan prodi" required>
+                          <label for="inputEmail">Email</label>
+                          <input id="inputNumber" type="number" name="number" placeholder="Masukan email" required>
+                          <label for="inputPassword">Password</label>
+                          <input id="inputPassword" type="password" name="password" placeholder="Masukan password" required>
+                          <button id="buttonLogin" type="submit">Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 {% endblock %}

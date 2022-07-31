@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 hero-text">
+          <h1>Ayo, Temukan <span style="color: #33A18E;">Mentor Tutorial</span> Yang <span style="color: #33A18E">Terbaik</span> di Bidangnya </h1>
+          <p>belajar kapanpun, dimanapun, tanpa batas</p>
+          <input type="search" placeholder="Cari...">
+            <label class="icon">
+              <!-- <span><i class='bx bx-search'></i></span> -->
+            </label>
+            <a href="#" class="btn join">Gabung</a>
+        </div>
+        <div class="col-md-6 hero-image">
+          <img src="{{ url_for('static', filename='assests/images/hero/Group 1000006085.png') }}" alt="image1" width="650vh" height="auto">
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- tutor section -->
+<section class="tutor-section d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-5">
+          <h1>Dengan mahasiswa terbaik</h1>
+          <a class="btn btn-tutor">Temukan tutor anda</a>
+        </div>
+        <div class="col-md-6">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card">
+                  <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
+                  <div class="card-body">
+                    <h5 class="card-title">Daffa Arviano</h5>
+                    <p class="card-text">Mahasiswa Teknik Informatika terbaik, juara 1 hackathon.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <img src="{{ url_for('static', filename='assests/images/tutor/muaz.png') }}" class="card-img-top" alt="tutor daffa">
+                  <div class="card-body">
+                    <h5 class="card-title">Ahmad Muaz</h5>
+                    <p class="card-text">Mahasiswa Teknik Informatika terbaik, menjuarai 1 UI/UX. </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
+                  <div class="card-body">
+                    <h5 class="card-title">Daffa Arviano</h5>
+                    <p class="card-text">Mahasiswa Teknik Informatika terbaik, juara 1 hackathon.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <img src="{{ url_for('static', filename='assests/images/tutor/muaz.png') }}" class="card-img-top" alt="tutor daffa">
+                  <div class="card-body">
+                    <h5 class="card-title">Ahmad Muaz</h5>
+                    <p class="card-text">Mahasiswa Teknik Informatika terbaik, menjuarai 1 UI/UX. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<!-- Top Categories -->
+<section class="top-categories d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+      <section class="section-title">
+        <h1>Tutorial terekomendasi</h1>
+      </section>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ url_for('static', filename='assests/images/categories/TI.jpg') }}" class="card-img-top" alt="Teknik Informatika">
+            <div class="card-body">
+              <h5 class="card-text">Teknik Informatika</h5>
+             <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+             <h6 class="students">50 Students</h6>
+              <ul>
+                <li>Studi Kasus</li>
+                <li>Pengalaman</li>
+                <li>Relasi Kerja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ url_for('static', filename='assests/images/categories/DKV.png') }}" class="card-img-top" alt="Desain Komunikasi Visual">
+            <div class="card-body">
+              <h5 class="card-text">Desain Komunikasi Visual</h5>
+              <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+             <h6 class="students">50 Students</h6>
+              <ul>
+                <li>Studi Kasus</li>
+                <li>Pengalaman</li>
+                <li>Relasi Kerja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ url_for('static', filename='assests/images/categories/DP.jpg') }}" class="card-img-top" alt="Desain Produk">
+            <div class="card-body">
+              <h5 class="card-text">Desain Produk</h5>
+              <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+             <h6 class="students">50 Students</h6>
+              <ul>
+                <li>Studi Kasus</li>
+                <li>Pengalaman</li>
+                <li>Relasi Kerja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ url_for('static', filename='assests/images/categories/HI.jpg') }}" class="card-img-top" alt="Hubungan Internasional">
+            <div class="card-body">
+              <h5 class="card-text">Hubungan Internasional</h5>
+              <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+             <h6 class="students">50 Students</h6>
+              <ul>
+                <li>Studi Kasus</li>
+                <li>Pengalaman</li>
+                <li>Relasi Kerja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ url_for('static', filename='assests/images/categories/psikologi.jpg') }}" class="card-img-top" alt="Psikologi">
+            <div class="card-body">
+              <h5 class="card-text">Psikologi</h5>
+              <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+             <h6 class="students">50 Students</h6>
+              <ul>
+                <li>Studi Kasus</li>
+                <li>Pengalaman</li>
+                <li>Relasi Kerja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="{{ url_for('static', filename='assests/images/categories/manajemen.jpg') }}" class="card-img-top" alt="Manajemen">
+            <div class="card-body">
+              <h5 class="card-text">Manajemen</h5>
+              <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+             <h6 class="students">50 Students</h6>
+              <ul>
+                <li>Studi Kasus</li>
+                <li>Pengalaman</li>
+                <li>Relasi Kerja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Join tutor -->
+<section class="join-tutor d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+      <div class="row tutor-join d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+          <h1>Mari Bergabung Bersama Kami !!!</h1>
+        </div>
+        <div class="col-md-6 text-end">
+          <a class="btn join">Gabung</a>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
