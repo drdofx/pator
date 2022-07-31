@@ -59,27 +59,42 @@ def register():
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username', None)
+        password = request.form.get('password', None)
+
         db = get_db()
+        cursor = db.cursor(dictionary=True)
         error = None
-        user = db.execute(
-            "SELECT * FROM user WHERE username = ?", (username,)
-        ).fetchone()
+
+        if '@' in username:
+            cursor.execute(
+                "SELECT * FROM user WHERE email = %s", (username,)
+            )
+        else:
+            cursor.execute(
+                "SELECT * FROM user WHERE username = %s", (username,)
+            )
+
+        user = cursor.fetchone()
+
+        print(user)
 
         if user is None:
-            error = "Incorrect username."
+            error = "Incorrect username or email."
         elif not check_password_hash(user['password'], password):
             error = "Incorrect password."
 
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            return redirect(url_for('hello'))
 
         flash(error)
 
-    return render_template('auth/login.html')
+    try:
+        return render_template('auth/login.html')
+    except TemplateNotFound:
+        abort(404)
 
 @bp.before_app_request
 def load_logged_in_user():
@@ -88,14 +103,19 @@ def load_logged_in_user():
     if user_id is None:
         g.user = None
     else:
-        g.user = get_db().execute(
-            "SELECT * FROM user WHERE id = ?", (user_id,)
-        ).fetchone()
+        cursor = get_db().cursor(dictionary=True)
+        cursor.execute(
+            "SELECT * FROM user WHERE id = %s", (user_id,)
+        )
+        g.user = cursor.fetchone()
 
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('hello'))
+
+def get_user():
+    return g.user
 
 def login_required(view):
     @functools.wraps(view)

@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS tutee_course_favorite;
 DROP TABLE IF EXISTS tutor_session_review;
 DROP TABLE IF EXISTS tutor_session;
+DROP TABLE IF EXISTS course_tutor_keyword;
 DROP TABLE IF EXISTS course_tutor;
 DROP TABLE IF EXISTS course;
 DROP TABLE IF EXISTS tutee;
@@ -13,7 +14,7 @@ CREATE TABLE user (
     username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     prodi VARCHAR(100) NOT NULL,
     angkatan INT
 );
@@ -49,6 +50,13 @@ CREATE TABLE course_tutor (
     course_rating TINYINT, 
     FOREIGN KEY (tutor_id) REFERENCES tutor (id),
     FOREIGN KEY (course_id) REFERENCES course (id)
+);
+
+CREATE TABLE course_tutor_keyword (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    keyword VARCHAR(255) NOT NULL,
+    course_tutor_id BIGINT NOT NULL,
+    FOREIGN KEY (course_tutor_id) REFERENCES course_tutor (id)
 );
 
 CREATE TABLE tutor_session (

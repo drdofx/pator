@@ -40,6 +40,17 @@ def init_db():
         cursor.execute(q)
         print(q)
 
+def seed_db():
+    db = get_db()
+    
+    cursor = db.cursor()
+    with open('pator/database/seeder.sql', encoding="utf-8") as f:
+        query = f.read().split(';')
+
+    for q in query:
+        cursor.execute(q)
+        print(q)
+
 @click.command('init-db')
 @with_appcontext
 def init_db_command():
@@ -47,6 +58,14 @@ def init_db_command():
     init_db()
     click.echo('Initialized the database.')
 
+@click.command('seed-db')
+@with_appcontext
+def seed_db_command():
+    """ Adding some data to database. """
+    seed_db()
+    click.echo('Seeded the database.')
+
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
+    app.cli.add_command(seed_db_command)
