@@ -15,13 +15,13 @@
             <a class="nav-link" aria-current="page" href="#">Kategori</a>
             <div class="dropdown-menu">
               <ul id="submenu-drop">
-                <li>Hubungan Internasional</li>
-                <li>Psikologi</li>
-                <li>Desain Komunikasi Visual</li>
-                <li>Desain Produk</li>
-                <li>Ilmu Komunikasi</li>
-                <li>Teknik Informatika</li>
-                <li>Matakuliah Umum</li>
+                <a href="{{ url_for('index') }}"><li>Hubungan Internasional</li></a>
+                <a href="{{ url_for('index') }}"><li>Psikologi</li></a>
+                <a href="{{ url_for('index') }}"><li>Desain Komunikasi Visual</li></a>
+                <a href="{{ url_for('index') }}"><li>Desain Produk</li></a>
+                <a href="{{ url_for('index') }}"><li>Ilmu Komunikasi</li></a>
+                <a href="{{ url_for('index') }}"><li>Teknik Informatika</li></a>
+                <a href="{{ url_for('index') }}"><li>Matakuliah Umum</li></a>
               </ul>
             </div>
           </li>
@@ -29,42 +29,81 @@
             <a class="nav-link" href="/hackathon/signup.html">Tentang</a>
           </li>
         </ul>
-        {% if request.url_rule.endpoint != "auth.register" %}
+        {% if g.user %}
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list"></i></a>
+          
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Dashboard</a></li>
+              <li><a class="dropdown-item" href="#">Pesan</a></li>
+              <li><a class="dropdown-item" href="#">Buat iklan</a></li>
+              <li><a class="dropdown-item " href="#">Profil</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Keluar</a></li>
+            </ul>
+          </div>
+        {% else %}
+          {% if request.url_rule.endpoint != "auth.register" %}
             <div class="daftar">
                 <a href="{{ url_for('auth.register') }}" class="btn btn-daftar">Daftar</a>
             </div>
+            <div class="masuk">
+              <button id="show-login" class="btn-masuk" onclick="showPopup()">Masuk</button>
+            </div>
+            <div class="popup">
+              <div class="close-btn" onclick="closePopup()">&times;</div>
+              <form method="post" id="login-form">
+              <div class="form">
+                <h2>Masuk</h2>
+                {% for message in get_flashed_messages() %}
+                  <div style="color: red;">{{ message }}</div>
+                {% endfor %}
+                <div class="form-element">
+                  <label for="email">Email</label>
+                  <input type="text" id="username" name="username" placeholder="Masukan email">
+                </div>
+                <div class="form-element">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" placeholder="Masukan email">
+                </div>
+                <div class="form-element">
+                  <input type="checkbox" id="remember-me" placeholder="Masukan email">
+                  <label for="remember-me">Remember me</label>
+                </div>
+                <div class="form-element">
+                  <button type="submit" value="Masuk" class="btn">Masuk</button>
+                </div>
+                <div class="form-element">
+                  <button class="btn btn-google"> <span><img src="{{ url_for('static', filename='assests/images/google.png') }}" alt="google" width="35px"></span> Masuk dengan google</button>
+                </div>
+                <div class="form-element">
+                  <a href="#">Forgot password</a>
+                </div>
+              </div>
+              </form>
+            </div>
+          {% endif %}
         {% endif %}
-        <div class="masuk">
-          <button id="show-login" class="btn-masuk" onclick="showPopup()">Masuk</button>
-        </div>
-        <div class="popup">
-          <div class="close-btn" onclick="closePopup()">&times;</div>
-          <div class="form">
-            <h2>Masuk</h2>
-            <div class="form-element">
-              <label for="email">Email</label>
-              <input type="text" id="email" placeholder="Masukan email">
-            </div>
-            <div class="form-element">
-              <label for="password">Password</label>
-              <input type="password" id="password" placeholder="Masukan email">
-            </div>
-            <div class="form-element">
-              <input type="checkbox" id="remember-me" placeholder="Masukan email">
-              <label for="remember-me">Remember me</label>
-            </div>
-            <div class="form-element">
-              <button class="btn">Masuk</button>
-            </div>
-            <div class="form-element">
-              <button class="btn btn-google"> <span><img src="{{ url_for('static', filename='assests/images/google.png') }}" alt="google" width="35px"></span> Masuk dengan google</button>
-            </div>
-            <div class="form-element">
-              <a href="#">Forgot password</a>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
 </nav>
+
+<!-- <script type="text/javascript">
+  $(document).on('submit','#login-form',function(e)
+                  {
+    console.log('hello');
+    e.preventDefault();
+    $.ajax({
+      type:'POST',
+      url:"{{ url_for('auth.login') }}" ,
+      data:{
+        usernmae: $("#username").val(),
+        password: $("password").val()
+      },
+      success:function()
+      {
+        alert('saved');
+      }
+    })
+  });
+</script> -->

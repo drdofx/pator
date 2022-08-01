@@ -10,13 +10,6 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
     )
 
-    from . import db
-    db.init_app(app)
-
-    from .blueprints import auth, tutor
-    app.register_blueprint(auth.bp)
-    app.register_blueprint(tutor.bp)
-
     # index page
     @app.route('/')
     def index():
@@ -35,6 +28,15 @@ def create_app(test_config=None):
         for data in res:
             print(data)
 
+
+    from . import db
+    db.init_app(app)
+
+    from .blueprints import auth, tutor
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(tutor.bp)
+
+    
 
 
     return app

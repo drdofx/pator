@@ -30,7 +30,7 @@ def register():
         error = None
 
         if None in (nim, username, password, name, email, prodi, angkatan):
-            error = "Please check you request data."
+            error = "Please fill all required data!"
 
         print(error)
 
@@ -44,9 +44,9 @@ def register():
                     data,
                 )
             except IntegrityError:
-                error = f"User {username} is already registered."
+                error = f"Username, NIM, or email is already registered."
             else:
-                return redirect(url_for("auth.register"))
+                return redirect(url_for("auth.login"))
 
         flash(error)
 
@@ -84,15 +84,17 @@ def login():
         elif not check_password_hash(user['password'], password):
             error = "Incorrect password."
 
+        # print(error)
+
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('hello'))
+            return redirect(url_for('index'))
 
         flash(error)
 
     try:
-        return render_template('auth/login.html')
+        return redirect(url_for('index'))
     except TemplateNotFound:
         abort(404)
 
@@ -112,7 +114,7 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('hello'))
+    return redirect(url_for('index'))
 
 def get_user():
     return g.user

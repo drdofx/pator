@@ -4,28 +4,35 @@
 
 {% block content %}
 <section class="registration d-flex flex-column justify-content-center align-items-center">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-12 mb-3">
-              <div class="card">
-                  <div class="card-body">
-                      <form id="loginForm" class="register" action="connect.php" method="post">
-                          <label for="fullName">Nama lengkap</label>
-                          <input id="fullName" type="name" name="fullName" placeholder="Masukan nama lengkap" required>
-                          <label for="nim">NIM</label>
-                          <input id="nim" type="text" name="nim" placeholder="Masukan NIM" required>
-                          <label for="prodi">Prodi</label>
-                          <input id="prodi" type="number" name="prodi" placeholder="Masukan prodi" required>
-                          <label for="inputEmail">Email</label>
-                          <input id="inputNumber" type="number" name="number" placeholder="Masukan email" required>
-                          <label for="inputPassword">Password</label>
-                          <input id="inputPassword" type="password" name="password" placeholder="Masukan password" required>
-                          <button id="buttonLogin" type="submit">Submit</button>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        {% for message in get_flashed_messages() %}
+                            <div class="mb-2" style="color: red;">{{ message }}</div>
+                        {% endfor %}
+                        <form id="loginForm" class="register" action="{{ url_for('auth.register' )}}" method="post">
+                            <label for="inputUsername">Username</label>
+                            <input id="inputUsername" type="name" name="username" placeholder="Masukan username" required>
+                            <label for="fullName">Nama lengkap</label>
+                            <input id="fullName" type="name" name="name" placeholder="Masukan nama lengkap" required>
+                            <label for="inputEmail">Email</label>
+                            <input id="inputNumber" type="email" name="email" placeholder="Masukan email" required>
+                            <label for="inputPassword">Password</label>
+                            <input id="inputPassword" type="password" name="password" placeholder="Masukan password (minimum 6 karakter)" pattern=".{6,}" required>
+                            <label for="nim">NIM</label>
+                            <input id="nim" type="number" name="nim" placeholder="Masukan NIM" required>
+                            <label for="prodi">Prodi</label>
+                            <input id="prodi" type="text" name="prodi" placeholder="Masukan prodi" required>
+                            <label for="angkatan">Angkatan</label>
+                            <input id="angkatan" type="number" name="angkatan" placeholder="Masukan angkatan" required>
+                            <button id="buttonLogin" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}

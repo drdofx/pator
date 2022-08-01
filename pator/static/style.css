@@ -82,8 +82,12 @@ nav ul {
 
 .dropdown-menu ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #434343;
     font-size: 18px;
+}
+
+.nav-item .dropdown-menu a {
+    color: #434343;
 }
 
 .dropdown-menu {
@@ -127,7 +131,7 @@ nav ul {
     margin-right: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    margin-top: 50px;
+    margin-top: 40px;
     overflow: auto;
     padding: 34px;
     font-size: 18px;
@@ -192,7 +196,7 @@ a {
     margin-right: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top: 30px;
     overflow: auto;
     padding: 34px;
     font-size: 18px;
@@ -456,16 +460,22 @@ a {
     height: 100%;
 }
 
-.tutor-section .card .card-title {
-    text-align: start;
-    font-weight: bold;
+.card {
+    color: #434343;
 }
 
-.tutor-section .card .card-text {
-    text-align: start;
+.card-title {
     font-size: 18px;
-    text-align: justify;
+    font-weight: bold;
+    padding-top: 5px;
+    text-align: center;
 }
+ .card p {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: start;
+    padding-top: 5px;
+ }
 
 /*=== Top Categories ===*/
 .top-categories {
@@ -561,6 +571,284 @@ a {
     font-weight: 600;
 }
 
+/*=== Homepage Login ===*/
+.dropdown a {
+    background: #33A18E;
+    width: 118px;
+    height: 55px;
+    border-radius: 8px;
+}
+
+.dropdown a:hover {
+    background: #33a18faf;
+    border-radius: 8px;
+    width: 118px;
+    height: 55px;
+}
+
+.btn.show .btn:active {
+    background-color: #33a18faf;
+    border-color: #33A18E;
+    border-radius: 8px;
+    width: 118px;
+    height: 55px;
+}
+
+.dropdown i {
+    font-size: 30px;
+    display: flex;
+    padding-top: 4px;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}
+
+.dropdown .dropdown-menu {
+    width: 200px;
+    background: #33A18E;
+    font-size: 18px;
+}
+
+.dropdown a {
+    font-weight: 700;
+}
+
+.dropdown ul li a:hover {
+    color: #fff;
+    background-color: #33A18E;
+    border-radius: 0;
+}
+
+/*=== kategori menu ===*/
+.kategori-menu {
+    margin-top: 150px;
+}
+
+.kategori-menu a {
+    text-decoration: none;
+}
+
+/*=== Checkout ===*/
+.checkout {
+    margin-top: 150px;
+}
+
+.checkout .deskripsi {
+    background: #33A18E;
+    border-radius: 8px;
+    height: 30vh;
+}
+
+.checkout h5 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: start;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 50px;
+}
+
+.checkout .card {
+    border-radius: 8px;
+}
+
+.checkout .card .card-title {
+    color: #434343;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.checkout .card p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.checkout span {
+    margin-left: -100px;
+}
+
+/*=== definition kursus ===*/
+.definition-course h5 {
+    font-size: 20px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.definition-course p {
+    padding-top: 10px;
+    font-size: 18px;
+    width: auto;
+    height: 150px;
+    color: #434343;
+    font-weight: 500;
+    text-align: start;
+    text-align: justify;
+}
+
+.definition-course .box-desk {
+    background: #33A18E;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.definition-course i {
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+.definition-course ul {
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 10px;
+}
+
+.definition-course ul li {
+    padding-top: 10px;
+}
+
+/*=== deskripsi tutor ===*/
+.deskripsi-tutor {
+    margin-top: 100px;
+}
+
+.deskripsi-tutor h5 {
+    font-size: 20px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.deskripsi-tutor p {
+    padding-top: 10px;
+    font-size: 18px;
+    width: auto;
+    height: 150px;
+    color: #434343;
+    font-weight: 500;
+    text-align: start;
+    text-align: justify;
+}
+
+/*=== Ulasan ===*/
+.ulasan {
+    margin-top: 100px;
+    color: #434343;
+}
+
+.ulasan h5 {
+    font-size: 20px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.ulasan .col-md-8 {
+    background: #fff;
+    border-radius: 8px;
+    width: 67%;
+    height: 120px;
+}
+
+.ulasan h6 {
+    padding-top: 10px;
+    font-size: 16px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.ulasan img {
+    width: 120px;
+    padding-bottom: 20px;
+}
+
+.ulasan p {
+    font-size: 18px;
+    width: auto;
+    height: 150px;
+    color: #434343;
+    font-weight: 500;
+    text-align: start;
+    text-align: justify;
+}
+
+/*=== Pembayaran ===*/
+.pembayaran {
+    margin-top: 150px;
+}
+
+.pembayaran .card {
+    width: 400px;
+}
+
+.pembayaran .card h5 {
+    font-size: 20px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.pembayaran .card .card-body img {
+    width: 150px;
+}
+
+.pembayaran .col-md-8 {
+    background-color: #fff;
+    height: auto;
+    border-radius: 8px;
+
+}
+
+.pembayaran h5 {
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 20px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.pembayaran p {
+    padding-left: 20px;
+    font-size: 18px;
+    color: #434343;
+    font-weight: 500;
+}
+
+.pembayaran .tipe {
+    padding-left: 20px;
+    background: #ECF1F0;
+    height: 50px;
+    width: 250px;
+}
+
+.pembayaran .tipe img {
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.pembayaran .btn-pesan {
+    padding-top: 20px;
+}
+
+.pembayaran button {
+    background: #33A18E;
+    border-radius: 8px;
+    width: 118px;
+    height: 55px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.pembayaran button:hover {
+    background: #33a18faf;
+    color: #fff;
+}
+
+/*=== Footer ===*/
 .footer {
     margin-top: 100px;
 }
@@ -598,6 +886,49 @@ a {
 }
 
 .footer .contact a {
+    font-size: 52px;
+    padding-left: 10px;
+    color: #33A18E;
+}
+
+/*=== footer2 ===*/
+.footer2 {
+    margin-top: 250px;
+}
+
+.footer2 p {
+    font-size: 20px;
+    padding-top: 24px;
+    color: #434343;
+}
+
+.footer2 h5 {
+    font-size: 24px;
+    color: #33A18E;
+    font-weight: 600px;
+}
+
+.footer2 ul {
+    padding-left: 0px;
+}
+
+.footer2 ul li {
+    list-style: none;
+    text-align: start;
+    white-space: nowrap;
+    position: relative;
+    margin-top: 12px;
+}
+
+.footer2 a {
+    text-decoration: none;
+    color: #434343;
+    font-size: 20px;
+    align-items: center;
+    margin-top: 1000px;
+}
+
+.footer2 .contact a {
     font-size: 52px;
     padding-left: 10px;
     color: #33A18E;
