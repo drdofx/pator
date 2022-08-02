@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Find Course{% endblock %}
+
+{% block content %}
+
+<section class="kategori-menu d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        {% for data in datas %}
+            <div>{{ data }}</div>
+        {% endfor %}
+        {% for data in datas %}
+          {% if loop.index0 % 4 == 0 %}
+            <div class="row">
+          {% endif %}
+              <div class="col-md-3 mb-3">
+                <a href="{{ url_for('course.detail', id=data['course_tutor_id']) }}">
+                  <div class="card">
+                      <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ data['name'] }}</h5>
+                        <p class="card-text">Mahasiswa Teknik Informatika terbaik, juara 1 hackathon.</p>
+                      </div>
+                    </div>
+                </a>
+              </div>
+          {% if loop.index0 % 4 == 0 %}
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

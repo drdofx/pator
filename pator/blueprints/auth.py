@@ -32,8 +32,6 @@ def register():
         if None in (nim, username, password, name, email, prodi, angkatan):
             error = "Please fill all required data!"
 
-        print(error)
-
         if error is None:
             try:
                 data = (nim, username, generate_password_hash(password), name, email, prodi, angkatan)
@@ -43,10 +41,20 @@ def register():
                     VALUES (%s, %s, %s, %s, %s, %s, %s)''',
                     data,
                 )
-            except IntegrityError:
-                error = f"Username, NIM, or email is already registered."
+            except IntegrityError as e:
+                err_msg = repr(e)
+                if 'NIM' in err_msg:
+                    error = f"Data NIM '{nim}' is already registered."
+                elif 'username' in err_msg:
+                    error = f"Data username '{username}' is already registered."
+                elif 'email' in err_msg:
+                    error = f"Data email '{email}' is already registered."
+                else:
+                    error = err_msg
             else:
                 return redirect(url_for("auth.login"))
+
+        # print(error)
 
         flash(error)
 

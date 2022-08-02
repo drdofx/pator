@@ -57,7 +57,7 @@ def create_course_tutor():
         print(error)
 
         if error is None:
-            cursor.execute('SELECT * FROM tutor WHERE user_id = (%s)', (g.user['id'],)) 
+            cursor.execute('SELECT * FROM tutor WHERE user_id = %s', (g.user['id'],)) 
 
             tutor = cursor.fetchone()
 
