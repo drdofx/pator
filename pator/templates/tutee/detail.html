@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Detail{% endblock %}
+
+{% block content %}
+<!-- deskripsi -->
+<section class="checkout d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div>{{ data }}</div>
+        <div class="row">
+            <div class="col-md-8 deskripsi d-flex flex-column justify-content-center align-items-center">
+                <h5>{{ data["course_name"] or 'Course Name' }}</h5>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ data["name"] or 'Course Tutor' }}</h5>
+                      <p class="card-text">Tarif perjam <span><p>Rp {{ data["hourly_fee"] or 'Course Fee' }}</p></span></p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- deskripsi kursus -->
+<section class="definition-course d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Tentang kursus {{ data["course_name"] or 'Course Name' }} oleh {{ data["name"] or 'Course Tutor' }}</h5>
+                <p>{{ data["course_description"] or "Kursus akan diberikan selama 1 jam/lebih tergantung materi yang diminta / diajukan oleh rekan-rekan. Dengan pengalaman saya mengajar business analytics di startup edtech di Indonesia, saya akan mencoba menjelaskan materi dari hal yang paling dasar sehingga mudah dipahami. Kursus ini ditujukan untuk siapa saja yang tertarik belajar pemrograman Python dan khususnya data science." }}</p>
+            </div>
+            <div class="col-md-2 box-desk">
+                <i class='bx bx-book-alt'></i>
+                <ul>
+                    <li>Programing</li>
+                    <li>Javascript</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- deskripsi tutor -->
+<section class="deskripsi-tutor d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h5>Tentang {{ data["name"] or 'Course Tutor' }}</h5>
+                <p>{{ data["self_description"] or "Lead Machine Learning Software Engineer at a startup company. Has 2 years experience in artificial intelligence and machine learning product development for various startup companies and projects. Graduated from the Department of Astronomy, Institut Teknologi Bandung. Previously won intel hackathon competition and national robotics competition. Has several lecture assistant experience and private tutorials." }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ulasan -->
+<section class="ulasan d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+            <h5>Ulasan</h5>
+
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <h6>Naruto</h6>
+                <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+                <p>keren banget. tutornya sabar.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <h6>Himti</h6>
+                <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+                <p>bang gift alok</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <h6>Naruto</h6>
+                <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+                <p>proker cepet selesain cuy. asig harus diadain</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <h6>Nofan</h6>
+                <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
+                <p>otw dipanggil nasa</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
