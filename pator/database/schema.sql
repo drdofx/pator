@@ -62,12 +62,12 @@ CREATE TABLE tutor_session (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     tutor_id BIGINT NOT NULL,
     tutee_id BIGINT NOT NULL,
-    course_id BIGINT NOT NULL,
+    course_tutor_id BIGINT NOT NULL,
     date_started DATE,
     date_ended DATE,
     FOREIGN KEY (tutor_id) REFERENCES tutor (id),
     FOREIGN KEY (tutee_id) REFERENCES tutee (id),
-    FOREIGN KEY (course_id) REFERENCES course (id)
+    FOREIGN KEY (course_tutor_id) REFERENCES course_tutor (id)
 );
 
 CREATE TABLE tutor_session_review (
@@ -81,8 +81,8 @@ CREATE TABLE tutor_session_review (
 CREATE TABLE tutee_course_favorite (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     tutee_id BIGINT NOT NULL,
-    course_id BIGINT NOT NULL,
+    course_tutor_id BIGINT NOT NULL,
     date_added DATE,
     FOREIGN KEY (tutee_id) REFERENCES tutee (id),
-    FOREIGN KEY (course_id) REFERENCES course (id)
+    FOREIGN KEY (course_tutor_id) REFERENCES course_tutor (id)
 );
