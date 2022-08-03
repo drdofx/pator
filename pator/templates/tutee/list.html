@@ -6,6 +6,11 @@
 
 <section class="kategori-menu d-flex flex-column justify-content-center align-items-center">
     <div class="container">
+        <h1>{{ category }}</h1>
+        {% if datas|length == 0 %}
+          <h4 class="mt-4">Maaf, tidak ada data!</h4>
+        {% endif %}
+
         {% for data in datas %}
             <div>{{ data }}</div>
         {% endfor %}
@@ -16,15 +21,19 @@
               <div class="col-md-3 mb-3">
                 <a href="{{ url_for('course.detail', id=data['course_tutor_id']) }}">
                   <div class="card">
-                      <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
-                      <div class="card-body">
-                        <h5 class="card-title">{{ data['name'] }}</h5>
-                        <p class="card-text">Mahasiswa Teknik Informatika terbaik, juara 1 hackathon.</p>
-                      </div>
+                    <img src="{{ url_for('static', filename='assests/images/categories/TI.jpg') }}" class="card-img-top" alt="Course image">
+                    <div class="card-body">
+                      <p class="fs-6 fw-light">{{ data['course_prodi'] or "Course Category" }}</p>
+                      <h5 class="card-text">{{ data['course_name'] or "Course Name" }}</h5>
+                      <h6 class="students">{{ data["name"] or 'Course Tutor' }}</h6>
+                      <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars" id="stars">
+                      <p>IDR</p>
+                      <p id="harga">{{ data['hourly_fee'] }}/jam</p>
                     </div>
+                  </div>
                 </a>
               </div>
-          {% if loop.index0 % 4 == 0 %}
+          {% if loop.index0 % 4 == 3 %}
             </div>
           {% endif %}
         {% endfor %}

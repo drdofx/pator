@@ -39,7 +39,7 @@ def create_course():
         
         abort(400, error)
 
-@bp_create.route('/session', methods=('GET', 'POST'))
+@bp_create.route('/detail', methods=('GET', 'POST'))
 @login_required
 def create_course_tutor():
     if request.method == 'POST':
@@ -75,7 +75,7 @@ def create_course_tutor():
                 (hourly_fee, course_description, course_id, tutor_id,)
             )
 
-            return redirect(url_for('hello'))
+            return redirect(url_for('index'))
             
         flash(error)
 
