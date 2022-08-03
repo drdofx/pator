@@ -26,7 +26,17 @@
                             <label for="nim">NIM</label>
                             <input id="nim" type="number" name="nim" placeholder="Masukan NIM" value="{{ request.form['nim'] }}" required>
                             <label for="prodi">Prodi</label>
-                            <input id="prodi" type="text" name="prodi" placeholder="Masukan prodi" value="{{ request.form['prodi'] }}" required>
+                            <select name="prodi" id="prodi" required>
+                                <option value="Hubungan Internasional" {% if request.form['prodi'] == 'Hubungan Internasional' %} selected {% endif %} >Hubungan Internasional</option>
+                                <option value="Psikologi" {% if request.form['prodi'] == 'Psikologi' %} selected {% endif %} >Psikologi</option>
+                                <option value="Desain Komunikasi Visual" {% if request.form['prodi'] == 'Desain Komunikasi Visual' %} selected {% endif %}>Desain Komunikasi Visual</option>
+                                <option value="Desain Produk" {% if request.form['prodi'] == 'Desain Produk' %} selected {% endif %}>Desain Produk</option>
+                                <option value="Ilmu Komunikasi" {% if request.form['prodi'] == 'Ilmu Komunikasi' %} selected {% endif %}>Ilmu Komunikasi</option>
+                                <option value="Teknik Informatika" {% if request.form['prodi'] == 'Teknik Informatika' %} selected {% endif %}>Teknik Informatika</option>
+                                <option value="Manajemen" {% if request.form['prodi'] == 'Manajemen' %} selected {% endif %}>Manajemen</option>
+                            </select>
+                            <br>
+                            <!-- <input id="prodi" type="text" name="prodi" placeholder="Masukan prodi" value="{{ request.form['prodi'] }}" required> -->
                             <label for="angkatan">Angkatan</label>
                             <input id="angkatan" type="number" name="angkatan" placeholder="Masukan angkatan" value="{{ request.form['angkatan'] }}" required>
                             <button id="buttonLogin" type="submit">Submit</button>

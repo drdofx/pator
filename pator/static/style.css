@@ -153,6 +153,15 @@ nav ul {
     color: #434343;
 }
 
+.register select {
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    padding: 8px;
+    margin: 8px 0 16px 0;
+    border-radius: 8px;
+}
+
 .register input[type="text"],
 .register input[type="name"],
 .register input[type="number"],  
@@ -686,20 +695,26 @@ a {
 }
 
 .checkout .deskripsi {
-    background: #33A18E;
     border-radius: 8px;
     height: 30vh;
 }
 
 .checkout h5 {
-    color: #fff;
-    font-weight: bold;
-    font-size: 30px;
+    color: #33A18E;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: start;
+}
+
+.checkout p {
+    padding-top: 10px;
+    font-size: 20px;
+    width: auto;
+    color: #434343;
+    font-weight: 500;
     text-align: start;
     text-align: justify;
-    margin-left: 20px;
-    margin-right: 20px;
-    line-height: 50px;
+    padding-bottom: 10px;
 }
 
 .checkout .card {
@@ -719,9 +734,31 @@ a {
     font-weight: 500;
 }
 
-.checkout span {
-    margin-left: -100px;
+.desk-course {
+    background: #33A18E;
+    border-radius: 8px;
+    width: 220px;
+    height: 220px;
+    color: #fff;
+    font-size: 20px;
 }
+
+.desk-course i {
+    padding-top: 15px;
+    padding-left: 20px;
+    font-size: 30px;
+}
+.desk-course ul {
+    list-style: none;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-left: 20px;
+}
+
+.desk-course ul li {
+    padding-top: 5px;
+}
+
 
 .checkout .btn-bayar {
     background: #33A18E;
@@ -743,60 +780,9 @@ a {
     padding-top: 15px;
 }
 
-/*=== definition kursus ===*/
-.definition-course h5 {
-    font-size: 28px;
-    color: #33A18E;
-    font-weight: 700;
-}
-
-.definition-course p {
-    padding-top: 10px;
-    font-size: 20px;
-    width: auto;
-    height: 150px;
-    color: #434343;
-    font-weight: 500;
-    text-align: start;
-    text-align: justify;
-}
-
-.box .box-desk {
-    background: #DDDDDD;
-    border-radius: 8px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    margin: 5px;
-}
-
-.box-desk img {
-    width: 120px;
-    height: 120px;
-    padding: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-
-.definition-course i {
-    font-size: 30px;
-    padding-top: 10px;
-}
-
-.definition-course ul {
-    list-style: none;
-    padding-left: 0px;
-    padding-top: 10px;
-}
-
-.definition-course ul li {
-    padding-top: 10px;
-}
-
 /*=== deskripsi tutor ===*/
 .deskripsi-tutor {
-    margin-top: 100px;
+    margin-top: -160px;
 }
 
 .deskripsi-tutor h5 {
@@ -818,13 +804,13 @@ a {
 
 /*=== Ulasan ===*/
 .ulasan {
-    margin-top: 100px;
+    margin-top: 50px;
     color: #434343;
 }
 
 .ulasan h5 {
-    font-size: 20px;
-    color: #434343;
+    font-size: 28px;
+    color: #33A18E;
     font-weight: 700;
 }
 
@@ -1007,32 +993,173 @@ a {
     color: #434343;
 }
 
-.tutor-iklan ul {
-    margin-top: 28px;
-    list-style: none;
-    text-align: start;
-    font-size: 20px;
+.tutor-iklan .card {
+    margin-top: 20px;
+    width: 40%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 40px;
+    overflow: auto;
+    padding: 34px;
+    font-size: 18px;
 }
 
-.tutor-iklan button {
-    width: 500px;
-    height: 55px;
+.tutor-iklan label {
+    font-size: 20px;
+    color: #434343;
+    display: block;
+    text-align: start;
+}
+
+.tutor-iklan select {
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    padding: 8px;
+    margin: 8px 0 16px 0;
+    border-radius: 8px;
+}
+
+.tutor-iklan #deskripsi-course {
+    width: 100%;
+    height: 100px;
+    padding-top: 8px;
+    padding-left: 10px;
+    border-radius: 8px;
+}
+
+/*=== Sukses ===*/
+.sukses {
+    margin-top: 150px;
+}
+
+.sukses .card {
+    margin-top: 20px;
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 40px;
+    overflow: auto;
+    padding: 34px;
+    font-size: 18px;
+}
+
+.sukses h1 {
+    font-size: 54px;
+    font-weight: 900;
+    line-height: 70px;
+    color: #434343;
+    text-align: center;
+}
+
+.sukses a {
+    color: #434343;
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.sukses i {
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #33A18E;
+    padding-bottom: 20px;
+}
+
+/*=== Profil ===*/
+.data-profil {
+    margin-top: 150px;
+}
+
+.data-profil .avatar img {
+    width: 220px;
+}
+
+.data-profil #loginForm label {
+    width: 118px;
+    height: 60px;
     background: #33A18E;
     color: #fff;
     font-size: 20px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+
+.data-profil .card {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 40px;
+    overflow: auto;
+    padding: 34px;
+    font-size: 18px;
+}
+
+.data-profil .data-diri {
+    margin-top: 20px;
+}
+
+.data-profil label {
+    font-size: 20px;
+    color: #434343;
+    display: block;
     text-align: start;
+}
+
+.data-profil input[type="text"],
+.data-profil input[type="name"],
+.data-profil input[type="number"],  
+.data-profil input[type="email"],  
+.data-profil input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    width: 70%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 8px;
     margin-bottom: 10px;
 }
 
-.tutor-iklan .dropdown-menu {
-    width: 300px;
+.data-profil .data-diri textarea {
+    width: 70%;
+    height: 100px;
+    border-radius: 8px;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
-
-.tutor-iklan button:hover {
-    background: #33a18f9c;
+.data-profil .data-diri button {
+    width: 118px;
+    height: 55px;
+    color: #fff;
+    display: block;
+    border-radius: 8px;
+    border-style: none;
+    background: #33A18E;
+    font-size: 20px;
+    font-weight: 600px;
+    justify-content: end;
+    margin-top: 10px;
 }
-
 
 /*=== Footer ===*/
 .footer {
