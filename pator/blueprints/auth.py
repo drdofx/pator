@@ -17,7 +17,6 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 def register():
     # print(dir(request))
     if request.method == 'POST':
-        username = request.form.get('username', None)
         password = request.form.get('password', None)
         nim = request.form.get('nim', None)
         name = request.form.get('name', None)
@@ -29,34 +28,33 @@ def register():
         cursor = db.cursor(dictionary=True)
         error = None
 
-        if None in (nim, username, password, name, email, prodi, angkatan):
+        if None in (nim, password, name, email, prodi, angkatan):
             error = "Please fill all required data!"
 
         if error is None:
             try:
-                data = (nim, username, generate_password_hash(password), name, email, prodi, angkatan)
+                data = (nim, generate_password_hash(password), name, email, prodi, angkatan)
                 cursor.execute(
                     '''INSERT INTO user
-                    (NIM, username, password, name, email, prodi, angkatan)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s)''',
+                    (NIM, password, name, email, prodi, angkatan)
+                    VALUES (%s, %s, %s, %s, %s, %s)''',
                     data,
                 )
             except IntegrityError as e:
                 err_msg = repr(e)
                 if 'NIM' in err_msg:
                     error = f"Data NIM '{nim}' is already registered."
-                elif 'username' in err_msg:
-                    error = f"Data username '{username}' is already registered."
                 elif 'email' in err_msg:
                     error = f"Data email '{email}' is already registered."
                 else:
                     error = err_msg
             else:
-                return redirect(url_for("auth.login"))
+                flash("Account has been created!", "success")
+                return redirect(url_for("auth.register"))
 
         # print(error)
 
-        flash(error)
+        flash(error, "error")
 
     try:
         return render_template('auth/register.html')
@@ -67,20 +65,20 @@ def register():
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        username = request.form.get('username', None)
+        account = request.form.get('account', None)
         password = request.form.get('password', None)
 
         db = get_db()
         cursor = db.cursor(dictionary=True)
         error = None
 
-        if '@' in username:
+        if '@' in account:
             cursor.execute(
-                "SELECT * FROM user WHERE email = %s", (username,)
+                "SELECT * FROM user WHERE email = %s", (account,)
             )
         else:
             cursor.execute(
-                "SELECT * FROM user WHERE username = %s", (username,)
+                "SELECT * FROM user WHERE NIM = %s", (account,)
             )
 
         user = cursor.fetchone()
@@ -88,7 +86,7 @@ def login():
         print(user)
 
         if user is None:
-            error = "Incorrect username or email."
+            error = "Incorrect NIM or email."
         elif not check_password_hash(user['password'], password):
             error = "Incorrect password."
 

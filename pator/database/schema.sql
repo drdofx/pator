@@ -11,7 +11,6 @@ DROP TABLE IF EXISTS user;
 CREATE TABLE user (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     NIM CHAR(10) UNIQUE NOT NULL,
-    username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -75,7 +74,7 @@ CREATE TABLE tutor_session_review (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     tutee_rating TINYINT,
     tutee_review LONGTEXT,
-    tutor_session_id BIGINT NOT NULL,
+    tutor_session_id BIGINT UNIQUE NOT NULL,
     FOREIGN KEY (tutor_session_id) REFERENCES tutor_session (id)
 );
 

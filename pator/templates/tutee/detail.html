@@ -15,10 +15,29 @@
                 <div class="card">
                     <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
                     <div class="card-body">
-                      <h5 class="card-title">{{ data["name"] or 'Course Tutor' }}</h5>
-                      <p class="card-text">Tarif perjam <span><p>Rp {{ data["hourly_fee"] or 'Course Fee' }}</p></span></p>
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">{{ data["name"] or 'Course Tutor' }}</h5>
+                            </div>
+                            <div class="row">
+                                <div class="col ms-3">
+                                    <p class="card-text">Tarif perjam</p>
+                                    <p class="card-text">Jumlah murid</p> 
+                                </div>
+                                <div class="col">
+                                    <p class="text-end">Rp {{ data["hourly_fee"] or '-' }}</p>
+                                    <p class="text-end">50</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-byr d-flex flex-column justify-content-center align-items-center ">
+                            <a href="{{ url_for('course.payment', id=data['course_tutor_id']) }}" class="btn btn-bayar">Reservasi</a>
+                        </div>
+                        <div class="button-cek d-flex flex-column justify-content-center align-items-center pt-2">
+                            <a href="#" class="btn btn-bayar" placeholder="Masukan Keranjang">Masukan keranjang</a>
+                        </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +47,7 @@
 <section class="definition-course d-flex flex-column justify-content-center align-items-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <h5>Tentang kursus {{ data["course_name"] or 'Course Name' }} oleh {{ data["name"] or 'Course Tutor' }}</h5>
                 <p>{{ data["course_description"] or "Kursus akan diberikan selama 1 jam/lebih tergantung materi yang diminta / diajukan oleh rekan-rekan. Dengan pengalaman saya mengajar business analytics di startup edtech di Indonesia, saya akan mencoba menjelaskan materi dari hal yang paling dasar sehingga mudah dipahami. Kursus ini ditujukan untuk siapa saja yang tertarik belajar pemrograman Python dan khususnya data science." }}</p>
             </div>

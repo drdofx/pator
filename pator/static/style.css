@@ -629,6 +629,57 @@ a {
     text-decoration: none;
 }
 
+.kategori-menu .card {
+    background: #CCEBE5;
+    border-radius: 8px;
+}
+
+.kategori-menu .card img {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    border-radius: 8px;
+}
+
+.kategori-menu h5 {
+    font-size: 20px;
+    color: #434343;
+    font-weight: 700;
+}
+
+.kategori-menu h6 {
+    font-size: 16px;
+    color: #33A18E;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.kategori-menu #stars {
+    width: 150px;
+    justify-content: start;
+    align-items: start;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 22px;
+}
+
+.kategori-menu p {
+    margin-bottom: 0rem;
+    font-size: 20px;
+    color: #434343;
+    font-weight: 500;
+
+}
+
+.kategori-menu #harga {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 /*=== Checkout ===*/
 .checkout {
     margin-top: 150px;
@@ -672,16 +723,36 @@ a {
     margin-left: -100px;
 }
 
+.checkout .btn-bayar {
+    background: #33A18E;
+    width: 350px;
+    height: 60px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+
+.checkout .btn-check {
+    background: #33A18E;
+    width: 300px;
+    height: 60px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+
 /*=== definition kursus ===*/
 .definition-course h5 {
-    font-size: 20px;
-    color: #434343;
+    font-size: 28px;
+    color: #33A18E;
     font-weight: 700;
 }
 
 .definition-course p {
     padding-top: 10px;
-    font-size: 18px;
+    font-size: 20px;
     width: auto;
     height: 150px;
     color: #434343;
@@ -690,12 +761,23 @@ a {
     text-align: justify;
 }
 
-.definition-course .box-desk {
-    background: #33A18E;
+.box .box-desk {
+    background: #DDDDDD;
     border-radius: 8px;
-    color: #fff;
-    font-size: 18px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
 }
+
+.box-desk img {
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 
 .definition-course i {
     font-size: 30px;
@@ -718,8 +800,8 @@ a {
 }
 
 .deskripsi-tutor h5 {
-    font-size: 20px;
-    color: #434343;
+    font-size: 28px;
+    color: #33A18E;
     font-weight: 700;
 }
 
@@ -781,18 +863,57 @@ a {
 }
 
 .pembayaran .card {
-    width: 400px;
+    background: #CCEBE5;
+    border-radius: 8px;
+}
+
+.pembayaran .card img {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    border-radius: 8px;
 }
 
 .pembayaran .card h5 {
     font-size: 20px;
     color: #434343;
     font-weight: 700;
+    padding-left: 0px;
 }
 
-.pembayaran .card .card-body img {
-    width: 150px;
+.pembayaran h6 {
+    font-size: 16px;
+    color: #33A18E;
+    font-weight: 600;
+    margin-bottom: 0px;
 }
+
+.pembayaran #stars {
+    width: 150px;
+    justify-content: start;
+    align-items: start;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 22px;
+}
+
+.pembayaran .card p {
+    margin-bottom: 0rem;
+    font-size: 20px;
+    color: #434343;
+    font-weight: 500;
+    padding-left: 0px;
+}
+
+.pembayaran #harga {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 
 .pembayaran .col-md-8 {
     background-color: #fff;
@@ -804,35 +925,59 @@ a {
 .pembayaran h5 {
     padding-top: 30px;
     padding-left: 20px;
-    font-size: 20px;
+    font-size: 28px;
     color: #434343;
     font-weight: 700;
 }
 
 .pembayaran p {
     padding-left: 20px;
-    font-size: 18px;
+    font-size: 20px;
     color: #434343;
     font-weight: 500;
 }
 
 .pembayaran .tipe {
-    padding-left: 20px;
+    margin-left: 20px;
     background: #ECF1F0;
-    height: 50px;
-    width: 250px;
+    border-radius: 8px;
+    height: 60px;
+    width: 305px;
 }
 
-.pembayaran .tipe img {
-    padding-top: 5px;
-    padding-left: 20px;
-}
 
 .pembayaran .btn-pesan {
     padding-top: 20px;
 }
 
-.pembayaran button {
+.pembayaran #btn-ovo {
+    width: 120px;
+    height: 60px;
+    background-color: #fff;
+    margin-left: 20px;
+}
+
+.pembayaran #btn-ovo img {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100px;
+}
+
+.pembayaran #btn-gopay {
+    width: 120px;
+    height: 60px;
+    background-color: #fff;
+    margin-left: 20px;
+}
+
+
+.pembayaran #btn-gopay img {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100px;
+}
+
+.pembayaran #btn-pesan {
     background: #33A18E;
     border-radius: 8px;
     width: 118px;
@@ -841,12 +986,53 @@ a {
     font-size: 20px;
     font-weight: 600;
     color: #fff;
+    margin-left: 20px;
 }
 
-.pembayaran button:hover {
+.pembayaran #btn-pesan:hover {
     background: #33a18faf;
     color: #fff;
 }
+
+/*=== Iklan ===*/
+.tutor-iklan {
+    margin-top: 130px;
+    text-align: center;
+}
+
+.tutor-iklan h1 {
+    font-size: 54px;
+    font-weight: 900;
+    line-height: 70px;
+    color: #434343;
+}
+
+.tutor-iklan ul {
+    margin-top: 28px;
+    list-style: none;
+    text-align: start;
+    font-size: 20px;
+}
+
+.tutor-iklan button {
+    width: 500px;
+    height: 55px;
+    background: #33A18E;
+    color: #fff;
+    font-size: 20px;
+    text-align: start;
+    margin-bottom: 10px;
+}
+
+.tutor-iklan .dropdown-menu {
+    width: 300px;
+}
+
+
+.tutor-iklan button:hover {
+    background: #33a18f9c;
+}
+
 
 /*=== Footer ===*/
 .footer {

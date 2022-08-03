@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Payment{% endblock %}
+
+{% block content %}
+
+ <!-- Pembayaran -->
+ <section class="pembayaran d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+            <div>{{ data }}</div>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="/hackathon/checkout.html">
+              <div class="card">
+                <img src="{{ url_for('static', filename='assests/images/categories/TI.jpg') }}" class="card-img-top" alt="Teknik Informatika">
+                <div class="card-body">
+                    <p class="fs-5 fw-light">{{ data['course_prodi'] or "Course Category" }}</p>
+                    <h5 class="card-text">{{ data['course_name'] or "Course Name" }}</h5>
+                    <h6 class="students">{{ data["name"] or 'Course Tutor' }}</h6>
+                    <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars" id="stars"S>
+                    <p>IDR</p>
+                    <p id="harga">{{ data['hourly_fee'] }}/jam</p>
+                </div>
+              </div>
+            </a>
+        </div>
+                <div class="col-md-8 ">
+                    <h5>Total Pembayaran</h5>
+                    <div class="row mt-5 mb-2">
+                      <div class="col">
+                        <p>Harga</p>
+                      </div>
+                      <div class="col">
+                        <p class="text-end me-5">Rp 1.000.000</p>
+                      </div>
+                    </div>
+                    <p>Tipe pembayaran</p>
+                    <div class="tipe">
+                        <button id="btn-ovo" class="btn"><span><img src="{{ url_for('static', filename='assests/images/pembayaran/ovo.png') }}" alt="ovo"></span></button>
+                        <button id="btn-gopay" class="btn"><span><img src="{{ url_for('static', filename='assests/images/pembayaran/gopay.png') }}" alt="gopay" width="120px"></span></button>
+                    </div>
+                    <div class="btn-pesan">
+                        <button id="btn-pesan" class="btn">Pesan</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
