@@ -12,14 +12,12 @@ bp = Blueprint('course', __name__, url_prefix='/course')
 
 # bp.register_blueprint(bp_create)
 
-# Work in progress
-@bp.route('/category', defaults={'name': None})
-@bp.route('/category/<name>', methods=(['GET']))
-def category(name):
+def get_courses(query=None, type='category'):
     db = get_db()
     cursor = db.cursor(dictionary=True)
 
-    if name is None:
+    #  if query is None, return every course
+    if query is None:
         cursor.execute(
             '''
             SELECT c.course_name, c.course_prodi, cp.course_rating, cp.hourly_fee, cp.id AS course_tutor_id, u.name
@@ -29,9 +27,14 @@ def category(name):
             INNER JOIN user u ON (t.user_id = u.id)
             '''
         )
+        
+        datas = cursor.fetchall()
 
-    else:
-        category_name = f"%{name}%"
+        return datas
+
+    # if query is not none, execute query statement based on type
+    if type == "category":
+        category_name = f"%{query}%"
 
         cursor.execute(
             '''
@@ -44,18 +47,50 @@ def category(name):
             ''',
             (category_name,)
         )
+    elif type == "search":
+        search_query = f"%{query}%"
+
+        cursor.execute(
+            '''
+            SELECT c.course_name, c.course_prodi, cp.course_rating, cp.hourly_fee, cp.id AS course_tutor_id, u.name
+            FROM course c
+            INNER JOIN course_tutor cp ON (c.id = cp.course_id)
+            INNER JOIN tutor t ON (cp.tutor_id = t.id)
+            INNER JOIN user u ON (t.user_id = u.id)
+            WHERE c.course_name LIKE %s 
+            OR WHERE u.name LIKE %s
+            ''',
+            (search_query,)
+        )
 
     datas = cursor.fetchall()
+
+    return datas
+
+
+@bp.route('/category', defaults={'name': None})
+@bp.route('/category/<name>', methods=(['GET']))
+def category(name):
+    datas = get_courses(name, "category")
 
     if name is not None:
         return render_template('tutee/list.html', datas=datas, category=name.title())
     else:
         return render_template('tutee/list.html', datas=datas)
 
+@bp.route('/search', defaults={'query': None})
+@bp.route('/search/<query>', methods=(['GET']))
+def search(query):
+    datas = get_courses(query, "search")
+
+    if query is not None:
+        return render_template('tutee/list.html', datas=datas, category=query.title())
+    else:
+        return render_template('tutee/list.html', datas=datas)
+
 
 @bp.route('/detail', defaults={'id': None})
 @bp.route('/detail/<int:id>', methods=(['GET']))
-@login_required
 def detail(id):
     db = get_db()
     cursor = db.cursor(dictionary=True)
@@ -84,6 +119,7 @@ def detail(id):
 
 @bp.route('/payment', defaults={'id': None})
 @bp.route('/payment/<int:id>', methods=('GET', 'POST'))
+@login_required
 def payment(id):
     if id is None:
         return redirect(request.referrer)

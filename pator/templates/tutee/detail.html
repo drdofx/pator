@@ -30,12 +30,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="button-byr d-flex flex-column justify-content-center align-items-center ">
-                            <a href="{{ url_for('course.payment', id=data['course_tutor_id']) }}" class="btn btn-bayar">Reservasi</a>
-                        </div>
-                        <div class="button-cek d-flex flex-column justify-content-center align-items-center pt-2">
-                            <a href="#" class="btn btn-bayar" placeholder="Masukan Keranjang">Masukan keranjang</a>
-                        </div>
+                        {% if g.user %}
+                            <div class="button-byr d-flex flex-column justify-content-center align-items-center ">
+                                <a href="{{ url_for('course.payment', id=data['course_tutor_id']) }}" class="btn btn-bayar">Reservasi</a>
+                            </div>
+                            <div class="button-cek d-flex flex-column justify-content-center align-items-center pt-2">
+                                <a href="#" class="btn btn-bayar" placeholder="Masukan Keranjang">Masukan keranjang</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

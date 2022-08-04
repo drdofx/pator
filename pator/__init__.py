@@ -22,11 +22,6 @@ def create_app(test_config=None):
     def hello():
         print(get_user())
         return 'Hello, World!'
-        cursor = db.get_db().cursor(dictionary=True)
-        cursor.execute('SELECT * FROM test')
-        res = cursor.fetchall()
-        for data in res:
-            print(data)
 
 
     from . import db

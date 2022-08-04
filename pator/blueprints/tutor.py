@@ -1,6 +1,7 @@
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
+from jinja2 import TemplateNotFound
 from werkzeug.exceptions import abort
 
 from pator.blueprints.auth import login_required
@@ -14,7 +15,7 @@ bp.register_blueprint(bp_create)
 # Work in progress
 @bp_create.route('/course', methods=(['POST']))
 @login_required
-def create_course():
+def course():
     if request.method == 'POST':
         course_name = request.form.get('course_name', None)
         course_prodi = request.form.get('course_prodi', None)
@@ -41,7 +42,7 @@ def create_course():
 
 @bp_create.route('/detail', methods=('GET', 'POST'))
 @login_required
-def create_course_tutor():
+def course_detail():
     if request.method == 'POST':
         hourly_fee = request.form.get('hourly_fee', None)
         course_description = request.form.get('course_description', None)
@@ -75,8 +76,22 @@ def create_course_tutor():
                 (hourly_fee, course_description, course_id, tutor_id,)
             )
 
-            return redirect(url_for('index'))
+            return redirect(url_for('tutor.create.success'))
             
-        flash(error)
+        abort(400)
 
-    return "ok"
+
+@bp_create.route('/iklan', methods=(['GET']))
+@login_required
+def iklan():
+    try:
+        return render_template('tutor/iklan.html')
+    except TemplateNotFound:
+        abort(404)
+
+@bp_create.route('/iklan-success', methods=(['GET']))
+def success():
+    try:
+        return render_template('tutor/success.html')
+    except TemplateNotFound:
+        abort(404)

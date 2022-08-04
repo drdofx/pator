@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Iklan Success{% endblock %}
+
+{% block content %}
+<section class="sukses d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <i class='bx bx-check-circle'></i>
+                        <h1>Iklan sudah berhasil dibuat</h1>
+                        <a href="{{ url_for('index') }}">Kembali ke home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
