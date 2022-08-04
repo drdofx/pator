@@ -145,7 +145,7 @@ def payment(id):
 
         data = cursor.fetchone()
 
-        data['hourly_fee'] *= int(hours)
+        data['total_fee'] = data['hourly_fee'] * int(hours)
 
         if data is not None:
             return render_template('tutee/payment.html', data=data)

@@ -1,0 +1,279 @@
+@media only screen and (max-width: 768px) {
+    .daftar {
+        background: none;
+    }
+
+    .collapse .btn-daftar {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .collapse .btn-masuk {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%,50%) scale(1.25);
+        width: 380px;
+        padding: 20px 30px;
+        background: #fff;
+        box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.20);
+        border-radius: 10px;
+        transition: top 0ms ease-in-out 200ms,
+                    opacity 200ms ease-in-out 0ms,
+                    transform 200ms ease-in-out 0ms;
+    }
+    
+    .popup.active {
+        top: 20%;
+        opacity: 1;
+        transform: translate(-50%,30%) scale(1);
+        transition: top 0ms ease-in-out 0ms,
+                    opacity 200ms ease-in-out 0ms,
+                    transform 200ms ease-in-out 0ms;
+    }
+
+    #hero h1 {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 45px;
+    }
+    
+    #hero p {
+        color: #9D9D9D;
+        margin-bottom: 50px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    #hero input {
+        width: 200px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    #hero .join {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        padding-top: 10px;
+        margin-bottom: 4px;
+    }
+
+    .hero-image {
+        padding-top: 50px;
+    }
+    
+    #hero img {
+        width: 100%;
+        height: auto;
+    }
+
+    .tutor-section h1 {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 45px;
+        margin-left: 30px;
+    }
+
+    .tutor-section .btn-tutor {
+        width: 220px;
+        height: 50px;
+        font-size: 20px;
+        margin-left: 30px;
+    }
+    
+    .tutor-section .btn:hover {
+        width: 220px;
+        height: 50px;
+        font-size: 20px;
+        margin-left: 30px;
+    }
+
+    .swiper {
+        margin-top: 50px;
+        width: 100%;
+        height: auto;
+    }
+
+    .top-categories {
+        margin-top: 50px;
+    }
+
+    .section-title h1 {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 45px;
+        margin-bottom: 50px;
+    }
+
+    .join-tutor {
+        margin-top: 50px;
+    }
+    
+    .tutor-join {
+        background: linear-gradient(to bottom, rgba(51,161,142,100%), rgba(51,161,142,100%), rgba(67,67,67,0%)), url("/hackathon/assests/images/tutor/tutorr.png");
+        width: 100%;
+        height: auto;
+        padding-top: 50px;
+    }
+
+    .tutor-join h1 {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 45px;
+        margin-bottom: 50px;
+    }
+
+    .tutor-join .join {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        margin-left: 30px;
+        padding-top: 10px;
+    }
+
+    .footer img {
+        width: 150px;
+        height: auto;
+    }
+
+    .footer p {
+        font-size: 18px;
+    }
+
+    .footer h5 {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+
+    .footer a {
+        font-size: 18px;
+    }
+    
+    .footer .contact a {
+        font-size: 32px;
+        padding-left: 10px;
+        color: #33A18E;
+    }
+
+    .checkout {
+        margin-top: 100px;
+    }
+
+    .checkout .judul {
+        width: 94%;
+        height: 90px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .checkout .card {
+        width: 100%;
+    }
+
+    .checkout h1 {
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 45px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .checkout .isi p {
+        margin-bottom: 55px;
+    }
+    
+    .checkout .isi input {
+        margin-bottom: 30px;
+    }
+
+    .checkout .btn-bayar {
+        width: 95%;
+        height: 60px;
+    }
+    
+    .description-course {
+        margin-top: 50px;
+    }
+
+    .desk-course {
+        margin-top: 250px;
+    }
+
+    .deskripsi-tutor {
+        margin-top: 50px;
+    }
+
+    .ulasan {
+        margin-top: 280px;
+    }
+
+    .ulasan .col-md-8 {
+        width: 95%;
+        height: 140px;
+        margin-left: 10px;
+    }
+
+    .pembayaran {
+        margin-top: 100px;
+    }
+
+    .pembayaran2 {
+        margin-top: 50px;
+    }
+
+    .pembayaran .col-md-8 {
+        width: 95%;
+        height: 380px;
+        margin-left: 10px;
+    }
+
+    .pembayaran h5 {
+        font-size: 20px;
+    }
+
+    .pembayaran p {
+        font-size: 18px;
+    }
+
+    .pembayaran .tipe {
+        width: 265px;
+        height: 50px;
+    }
+
+    .pembayaran #btn-ovo {
+        width: 100px;
+        height: 50px;
+    }
+    
+
+    .pembayaran #btn-ovo img {
+        width: 75px;
+    }
+    
+    .pembayaran #btn-gopay {
+        width: 100px;
+        height: 50px;
+    }
+
+    .pembayaran #btn-gopay img {
+        width: 75px;
+    }
+
+    .pembayaran #btn-pesan {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+        padding-top: 8px;
+    }
+}

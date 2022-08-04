@@ -331,7 +331,6 @@ a {
 
 /*=== Hero ===*/
 #hero {
-    
     width: 100%;
     height: 100vh;
     font-family: 'Inter', sans-serif;
@@ -385,7 +384,6 @@ a {
     border-radius: 8px;
     border-style: none;
     color: #fff;
-    font-size: 24;
     padding-top: 15px;
 }
 
@@ -415,7 +413,7 @@ a {
     font-weight: 600;
     width: 260px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 8px;
     border-style: none;
     padding-top: 10px;
 }
@@ -426,7 +424,7 @@ a {
     border-style: solid;
     width: 260px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 8px;
     transition: 0.3s;
     border-style: none;
     padding-top: 10px;
@@ -474,7 +472,7 @@ a {
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     padding-top: 5px;
     text-align: center;
@@ -492,8 +490,6 @@ a {
     background: #33A18E;
     max-width: 100%;
     height: auto;
-    object-fit: cover;
-    background-repeat: no-repeat;
 }
 .top-categories .card {
     width: 100%;
@@ -504,7 +500,7 @@ a {
 .top-categories .card-text {
     padding-top: 5px;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -739,7 +735,7 @@ a {
 
 .checkout .btn-bayar {
     background: #33A18E;
-    width: 350px;
+    width: 100%;
     height: 60px;
     color: #fff;
     font-size: 20px;
@@ -749,7 +745,7 @@ a {
 
 .checkout .btn-check {
     background: #33A18E;
-    width: 300px;
+    width: 100%;
     height: 60px;
     color: #fff;
     font-size: 20px;
@@ -937,6 +933,7 @@ a {
 
 .pembayaran .col-md-8 {
     background-color: #fff;
+    width: 66%;
     height: auto;
     border-radius: 8px;
 
@@ -1229,7 +1226,6 @@ a {
     color: #434343;
     font-size: 20px;
     align-items: center;
-    margin-top: 1000px;
 }
 
 .footer .contact a {

@@ -41,6 +41,10 @@
                       <div class="button-cek d-flex flex-column justify-content-center align-items-center pt-2">
                         <a href="#" class="btn btn-bayar" placeholder="Masukan Keranjang">Masukan keranjang</a>
                       </div>
+                      {% else %}
+                      <div class="mb-2" style="color: red;">
+                        <p style="text-align: center">Anda belum login!</p>
+                      </div>
                       {% endif %}
                     </form>
                     </div>
@@ -77,7 +81,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h5>Tentang {{ data["name"] or 'Course Tutor' }}</h5>
-                <p>Lead Machine Learning Software Engineer at a startup company. Has 2 years experience in artificial intelligence and machine learning product development for various startup companies and projects. Graduated from the Department of Astronomy, Institut Teknologi Bandung. Previously won intel hackathon competition and national robotics competition. Has several lecture assistant experience and private tutorials.</p>
+                <p>{{ data["self_description"] or "Lead Machine Learning Software Engineer at a startup company. Has 2 years experience in artificial intelligence and machine learning product development for various startup companies and projects. Graduated from the Department of Astronomy, Institut Teknologi Bandung. Previously won intel hackathon competition and national robotics competition. Has several lecture assistant experience and private tutorials." }}</p>
             </div>
         </div>
     </div>
@@ -89,7 +93,7 @@
             <h5>Ulasan</h5>
 
         <div class="row">
-            <div class="col-md-8 mb-3">
+            <div class="col-md-8 mb-3"
                 <h6>Naruto</h6>
                 <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
                 <p>keren banget. tutornya sabar.</p>
