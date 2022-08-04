@@ -9,12 +9,11 @@
       <div class="row">
         <div class="col-md-6 hero-text">
           <h1>Ayo, Temukan <span style="color: #33A18E;">Mentor dan Tutor</span> Yang <span style="color: #33A18E">Terbaik</span> di Bidangnya </h1>
-          <p>belajar kapanpun, dimanapun, tanpa batas</p>
-          <input type="search" placeholder="Cari...">
-            <label class="icon">
-              <!-- <span><i class='bx bx-search'></i></span> -->
-            </label>
-            <a href="#" class="btn join">Gabung</a>
+          <p class="mb-4">belajar kapanpun, dimanapun, tanpa batas</p>
+          <form action="{{ url_for('course.search') }}" method="get">
+            <input type="search" name="query" placeholder="Cari...">
+            <button type="submit" class="mt-4 btn join">Cari Tutor</button>
+          </form>
         </div>
         <div class="col-md-6 hero-image">
           <img src="{{ url_for('static', filename='assests/images/hero/Group 1000006085.png') }}" alt="image1" width="650vh" height="auto">

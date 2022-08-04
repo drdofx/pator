@@ -331,7 +331,6 @@ a {
 
 /*=== Hero ===*/
 #hero {
-    
     width: 100%;
     height: 100vh;
     font-family: 'Inter', sans-serif;
@@ -385,7 +384,6 @@ a {
     border-radius: 8px;
     border-style: none;
     color: #fff;
-    font-size: 24;
     padding-top: 15px;
 }
 
@@ -415,7 +413,7 @@ a {
     font-weight: 600;
     width: 260px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 8px;
     border-style: none;
     padding-top: 10px;
 }
@@ -426,7 +424,7 @@ a {
     border-style: solid;
     width: 260px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 8px;
     transition: 0.3s;
     border-style: none;
     padding-top: 10px;
@@ -474,7 +472,7 @@ a {
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     padding-top: 5px;
     text-align: center;
@@ -492,8 +490,6 @@ a {
     background: #33A18E;
     max-width: 100%;
     height: auto;
-    object-fit: cover;
-    background-repeat: no-repeat;
 }
 .top-categories .card {
     width: 100%;
@@ -504,7 +500,7 @@ a {
 .top-categories .card-text {
     padding-top: 5px;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -694,27 +690,20 @@ a {
     margin-top: 150px;
 }
 
-.checkout .deskripsi {
+.checkout .judul {
+    background: #33A18E;
+    color: #fff;
+    width: 66%;
+    height: 250px;
     border-radius: 8px;
-    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.checkout h5 {
-    color: #33A18E;
-    font-weight: 700;
-    font-size: 28px;
-    text-align: start;
-}
-
-.checkout p {
-    padding-top: 10px;
-    font-size: 20px;
-    width: auto;
-    color: #434343;
-    font-weight: 500;
-    text-align: start;
-    text-align: justify;
-    padding-bottom: 10px;
+.checkout h1 {
+    font-size: 54px;
+    font-weight: bold;
 }
 
 .checkout .card {
@@ -734,6 +723,63 @@ a {
     font-weight: 500;
 }
 
+.checkout .card #hours {
+    width: 40px;
+    height: auto;
+    text-align: center;
+}
+
+.checkout input[type="number"] {
+    margin-left: 150px;
+}
+
+.checkout .btn-bayar {
+    background: #33A18E;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+
+.checkout .btn-check {
+    background: #33A18E;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 15px;
+}
+
+/*=== deskripsi course ===*/
+.description-course {
+    margin-top: -250px;
+}
+
+.description-course .deskripsi h5 {
+    font-size: 28px;
+    color: #33A18E;
+    font-weight: 700;
+}
+
+.description-course .deskripsi p {
+    padding-top: 10px;
+    font-size: 20px;
+    width: auto;
+    height: 150px;
+    color: #434343;
+    font-weight: 500;
+    text-align: start;
+    text-align: justify;
+}
+
+.description-course .deskripsi ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
 .desk-course {
     background: #33A18E;
     border-radius: 8px;
@@ -741,6 +787,7 @@ a {
     height: 220px;
     color: #fff;
     font-size: 20px;
+    margin-top: 30px;
 }
 
 .desk-course i {
@@ -757,32 +804,15 @@ a {
 
 .desk-course ul li {
     padding-top: 5px;
+    padding-left: 20px;
 }
 
 
-.checkout .btn-bayar {
-    background: #33A18E;
-    width: 350px;
-    height: 60px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-    padding-top: 15px;
-}
 
-.checkout .btn-check {
-    background: #33A18E;
-    width: 300px;
-    height: 60px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-    padding-top: 15px;
-}
 
 /*=== deskripsi tutor ===*/
 .deskripsi-tutor {
-    margin-top: -160px;
+    margin-top: 100px;
 }
 
 .deskripsi-tutor h5 {
@@ -793,7 +823,7 @@ a {
 
 .deskripsi-tutor p {
     padding-top: 10px;
-    font-size: 18px;
+    font-size: 20px;
     width: auto;
     height: 150px;
     color: #434343;
@@ -804,7 +834,7 @@ a {
 
 /*=== Ulasan ===*/
 .ulasan {
-    margin-top: 50px;
+    margin-top: 100px;
     color: #434343;
 }
 
@@ -903,6 +933,7 @@ a {
 
 .pembayaran .col-md-8 {
     background-color: #fff;
+    width: 66%;
     height: auto;
     border-radius: 8px;
 
@@ -1195,7 +1226,6 @@ a {
     color: #434343;
     font-size: 20px;
     align-items: center;
-    margin-top: 1000px;
 }
 
 .footer .contact a {

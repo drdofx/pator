@@ -10,7 +10,7 @@
             <div>{{ data }}</div>
         <div class="row">
           <div class="col-md-4">
-            <a href="/hackathon/checkout.html">
+            <a href="{{ url_for('course.detail', id=data['course_tutor_id']) }}">
               <div class="card">
                 <img src="{{ url_for('static', filename='assests/images/categories/TI.jpg') }}" class="card-img-top" alt="Teknik Informatika">
                 <div class="card-body">
@@ -24,14 +24,14 @@
               </div>
             </a>
         </div>
-                <div class="col-md-8 ">
+                <div class="col-md-8 pembayaran2">
                     <h5>Total Pembayaran</h5>
                     <div class="row mt-5 mb-2">
                       <div class="col">
                         <p>Harga</p>
                       </div>
                       <div class="col">
-                        <p class="text-end me-5">Rp {{ data['hourly_fee'] }}</p>
+                        <p class="text-end me-5">Rp {{ data['total_fee'] }}</p>
                       </div>
                     </div>
                     <p>Tipe pembayaran</p>

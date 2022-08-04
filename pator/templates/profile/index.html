@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="data-profil d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            {% for message in get_flashed_messages(with_categories=true) %}
+                                {% if message[0] == "error" %}
+                                <div class="mb-2" style="color: red;">{{ message[1] }}</div>
+                                {% elif message[0] == "success" %}
+                                <div class="mb-2" style="color: green;">{{ message[1] }}</div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="col-md-3 avatar">
+                                <img src="{{ url_for('static', filename='assests/images/avatar-none.jpg') }}" alt="avatar-profil">
+                            </div>
+                            <div class="col-md-9">
+                                <form id="loginForm" class="register" action="{{ url_for('profile.edit') }}" method="post">
+                                    <label for="gambar" class="btn">
+                                        Pilih foto
+                                        <input type="file" class="d-none" data-filename-placement="inside" accept="image/*" data-avatar-selector>
+                                    </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <div>{{ tutor }}</div> -->
+                            <div class="col data-diri">
+                                
+                                <input type="hidden" name="tutor_id" value="{{ tutor['id'] }}">
+                                <label for="fullName">Nama lengkap</label>
+                                <input id="fullName" type="name" name="fullName" value="{{ g.user['name'] }}" disabled>
+                                <label for="nim">NIM</label>
+                                <input id="nim" type="number" name="nim" value="{{ g.user['NIM'] }}" disabled>
+                                <label for="prodi">Prodi</label>
+                                <select name="prodi" id="prodi"  class="mb-2" disabled>
+                                    <option value="{{ g.user['prodi'] }}">{{ g.user['prodi'] }}</option>
+                                </select>
+                                <br>
+                                <label for="inputEmail">Email</label>
+                                <input id="inputNumber" type="email" name="number" value="{{ g.user['email'] }}" disabled>
+                                <label for="deskripsi-diri">Deskripsi diri</label>
+                                <textarea id="deskripsi-diri" name="self_description" rows="10" cols="39" required>{{ tutor['self_description'] }}</textarea>
+                                <button id="buttonLogin" type="submit">Submit</button>
+                            </form>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

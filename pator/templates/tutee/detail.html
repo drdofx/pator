@@ -6,61 +6,73 @@
 <!-- deskripsi -->
 <section class="checkout d-flex flex-column justify-content-center align-items-center">
     <div class="container">
-        <div>{{ data }}</div>
         <div class="row">
-            <div class="col-md-8 deskripsi d-flex flex-column justify-content-center align-items-center">
-                <h5>{{ data["course_name"] or 'Course Name' }}</h5>
+            <div class="col-md-8 judul">
+                <h1>{{ data["course_name"] or 'Course Name' }}</h1>
             </div>
             <div class="col-md-4">
                 <div class="card">
                     <img src="{{ url_for('static', filename='assests/images/tutor/daffa.png') }}" class="card-img-top" alt="tutor daffa">
                     <div class="card-body">
+                    <form action="{{ url_for('course.payment', id=data['course_tutor_id']) }}" method="get">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title">{{ data["name"] or 'Course Tutor' }}</h5>
+                        </div>
                         <div class="row">
-                            <div class="col">
-                                <h5 class="card-title">{{ data["name"] or 'Course Tutor' }}</h5>
-                            </div>
-                            <div class="row">
-                                <div class="col ms-3">
-                                    <p class="card-text">Tarif perjam</p>
-                                    <p class="card-text">Jumlah murid</p> 
-                                </div>
-                                <div class="col">
-                                    <p class="text-end">Rp {{ data["hourly_fee"] or '-' }}</p>
-                                    <p class="text-end">50</p>
-                                </div>
-                            </div>
+                          <div class="col ms-3">
+                            <p class="card-text">Tarif perjam</p>
+                            <p class="card-text">Waktu (jam)</p> 
+                            <p class="card-text mt-2">Jumlah murid</p> 
+                          </div>
+                          <div class="col isi">
+                            <p class="text-end">Rp{{ data["hourly_fee"] or '-' }}</p>
+                            <input id="hours" type="number" name="hours" value="1" required>
+                            <p class="text-end mt-3">50</p>
+                          </div>
+                          <!-- <input type="hidden" name="course_tutor_id" value="data['course_tutor_id']"> -->
                         </div>
-                        <div class="button-byr d-flex flex-column justify-content-center align-items-center ">
-                            <a href="{{ url_for('course.payment', id=data['course_tutor_id']) }}" class="btn btn-bayar">Reservasi</a>
-                        </div>
-                        <div class="button-cek d-flex flex-column justify-content-center align-items-center pt-2">
-                            <a href="#" class="btn btn-bayar" placeholder="Masukan Keranjang">Masukan keranjang</a>
-                        </div>
+                      </div>
+                      {% if g.user %}
+                      <div class="button-byr d-flex flex-column justify-content-center align-items-center ">
+                        <!-- <a href="{{ url_for('course.payment', id=data['course_tutor_id']) }}" class="btn btn-bayar">Reservasi</a> -->
+                        <button class="btn btn-bayar" type="submit">Reservasi</button>
+                      </div>
+                      <div class="button-cek d-flex flex-column justify-content-center align-items-center pt-2">
+                        <a href="#" class="btn btn-bayar" placeholder="Masukan Keranjang">Masukan keranjang</a>
+                      </div>
+                      {% else %}
+                      <div class="mb-2" style="color: red;">
+                        <p style="text-align: center">Anda belum login!</p>
+                      </div>
+                      {% endif %}
+                    </form>
                     </div>
-                </div>
+                  </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- deskripsi kursus -->
-<section class="definition-course d-flex flex-column justify-content-center align-items-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h5>Tentang kursus {{ data["course_name"] or 'Course Name' }} oleh {{ data["name"] or 'Course Tutor' }}</h5>
-                <p>{{ data["course_description"] or "Kursus akan diberikan selama 1 jam/lebih tergantung materi yang diminta / diajukan oleh rekan-rekan. Dengan pengalaman saya mengajar business analytics di startup edtech di Indonesia, saya akan mencoba menjelaskan materi dari hal yang paling dasar sehingga mudah dipahami. Kursus ini ditujukan untuk siapa saja yang tertarik belajar pemrograman Python dan khususnya data science." }}</p>
-            </div>
-            <div class="col-md-2 box-desk">
-                <i class='bx bx-book-alt'></i>
-                <ul>
-                    <li>Programing</li>
-                    <li>Javascript</li>
-                    <li>Python</li>
-                </ul>
-            </div>
+<section class="description-course">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 deskripsi">
+        <h5>Tentang kursus</h5>
+        <p>{{ data["course_description"] or 'Course Description' }}</p>
+        <div class="desk-course">
+          <i class='bx bx-book-alt'></i>
+          <ul>
+            <li>Programming</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+          </ul>
         </div>
     </div>
+    </div>
+  </div>
 </section>
 
 <!-- deskripsi tutor -->
@@ -81,7 +93,7 @@
             <h5>Ulasan</h5>
 
         <div class="row">
-            <div class="col-md-8 mb-3">
+            <div class="col-md-8 mb-3"
                 <h6>Naruto</h6>
                 <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
                 <p>keren banget. tutornya sabar.</p>
