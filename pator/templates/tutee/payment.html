@@ -10,7 +10,7 @@
             <div>{{ data }}</div>
         <div class="row">
           <div class="col-md-4">
-            <a href="/hackathon/checkout.html">
+            <a href="{{ url_for('course.detail', id=data['course_tutor_id']) }}">
               <div class="card">
                 <img src="{{ url_for('static', filename='assests/images/categories/TI.jpg') }}" class="card-img-top" alt="Teknik Informatika">
                 <div class="card-body">

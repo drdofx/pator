@@ -58,9 +58,9 @@ def get_courses(query=None, type='category'):
             INNER JOIN tutor t ON (cp.tutor_id = t.id)
             INNER JOIN user u ON (t.user_id = u.id)
             WHERE c.course_name LIKE %s 
-            OR WHERE u.name LIKE %s
+            OR u.name LIKE %s
             ''',
-            (search_query,)
+            (search_query, search_query,)
         )
 
     datas = cursor.fetchall()
@@ -78,9 +78,10 @@ def category(name):
     else:
         return render_template('tutee/list.html', datas=datas)
 
-@bp.route('/search', defaults={'query': None})
-@bp.route('/search/<query>', methods=(['GET']))
-def search(query):
+@bp.route('/search', methods=(['GET']))
+def search():
+    query = request.args.get('query')
+    
     datas = get_courses(query, "search")
 
     if query is not None:
@@ -125,6 +126,8 @@ def payment(id):
         return redirect(request.referrer)
 
     if request.method == 'GET':
+        hours = request.args.get('hours')
+
         db = get_db()
         cursor = db.cursor(dictionary=True)
 
@@ -141,6 +144,8 @@ def payment(id):
         )
 
         data = cursor.fetchone()
+
+        data['hourly_fee'] *= int(hours)
 
         if data is not None:
             return render_template('tutee/payment.html', data=data)
