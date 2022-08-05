@@ -13,7 +13,7 @@ bp_create = Blueprint('create', __name__, url_prefix='/create')
 bp.register_blueprint(bp_create)
 
 # Work in progress
-@bp_create.route('/course', methods=(['POST']))
+@bp_create.route('/course', methods=(['GET', 'POST']))
 @login_required
 def course():
     if request.method == 'POST':
@@ -40,22 +40,49 @@ def course():
         
         abort(400, error)
 
+    try:
+        return render_template('tutor/course.html')
+    except TemplateNotFound:
+        abort(404)
+
+def create_course_data_with_condition(course_name=None, course_prodi=None):
+    if None in (course_name, course_prodi):
+        return None
+
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute('SELECT id FROM course WHERE course_name = %s', (course_name,))
+
+    course_id = cursor.fetchone()
+
+    if course_id is not None:
+        return course_id['id']
+
+    cursor.execute(
+        ''' 
+        INSERT INTO course (course_name, course_prodi)
+        VALUES (%s, %s)
+        ''', (course_name, course_prodi,)
+    )
+
+    return cursor.lastrowid
+
 @bp_create.route('/detail', methods=('GET', 'POST'))
 @login_required
 def course_detail():
     if request.method == 'POST':
         hourly_fee = request.form.get('hourly_fee', None)
         course_description = request.form.get('course_description', None)
-        course_id = request.form.get('course_id', None)
+        course_name = request.form.get('course_name', None)
+        course_prodi = request.form.get('course_prodi', None)
 
         db = get_db()
         cursor = db.cursor(dictionary=True)
         error = None
 
-        if None in (hourly_fee, course_id):
+        if None in (hourly_fee, course_name, course_prodi):
             error = "Please check you request data."
-
-        print(error)
 
         if error is None:
             cursor.execute('SELECT * FROM tutor WHERE user_id = %s', (g.user['id'],)) 
@@ -67,6 +94,8 @@ def course_detail():
                 tutor_id = cursor.lastrowid
             else:
                 tutor_id = tutor['id']
+
+            course_id = create_course_data_with_condition(course_name, course_prodi)
 
             cursor.execute(
                 ''' 
@@ -80,16 +109,33 @@ def course_detail():
             
         abort(400)
 
-
 @bp_create.route('/iklan', methods=(['GET']))
 @login_required
 def iklan():
     try:
-        return render_template('tutor/iklan.html')
+        category = request.args.get('category')
+
+        if category is None:
+            abort(400)
+
+        db = get_db()
+        cursor = db.cursor(dictionary=True)
+
+        cursor.execute(
+            '''
+            SELECT * from course WHERE course_prodi = %s
+            ''',
+            (category,)
+        )
+
+        datas = cursor.fetchall()
+
+        return render_template('tutor/iklan.html', datas=datas)
     except TemplateNotFound:
         abort(404)
 
 @bp_create.route('/iklan-success', methods=(['GET']))
+@login_required
 def success():
     try:
         return render_template('tutor/success.html')

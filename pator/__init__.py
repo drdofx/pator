@@ -23,6 +23,14 @@ def create_app(test_config=None):
         print(get_user())
         return 'Hello, World!'
 
+    # rupiah format filter
+    @app.template_filter('rupiah_format')
+    def rupiah_format(amount): 
+        import locale 
+        locale.setlocale(locale.LC_NUMERIC, 'IND')
+        rupiah = locale.format("%.*f", (2, amount), True)
+        return rupiah
+
 
     from . import db
     db.init_app(app)

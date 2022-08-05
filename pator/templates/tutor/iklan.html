@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Course Detail{% endblock %}
+{% block title %}Create Course Ad{% endblock %}
 
 {% block content %}
 <section class="tutor-iklan">
@@ -11,21 +11,21 @@
                 <div class="card">
                   <div class="card-body">
                       <form id="loginForm" class="register" action="{{ url_for('tutor.create.course_detail') }}" method="post">
-                          <label for="prodi">Pilih prodi</label>
-                          <select name="prodi" id="prodi" required>
-                                <option value="{{ g.user['prodi'] }}">{{ g.user['prodi'] }}</option>
-                                <option value="umum">Matakuliah Umum</option>
-                          </select>
-                          <br>
-                          <label for="name-course">Nama kursus</label>
-                          <input id="name-course" type="text" name="course_id" placeholder="Masukan nama kursus" required>
-                          <label for="tarif">Tarif per jam</label>
-                          <input id="tarif" type="number" min="0" step="100" name="hourly_fee" placeholder="Masukan tarif" required>
-                          <label for="deskripsi-course">Deskripsi course</label>
-                          <textarea id="deskripsi-course" name="course_description" rows="10" cols="39" placeholder="Masukan deskripsi course" required></textarea>
-                          <label for="gambar">Masukan foto (opsional)</label>
-                          <input type="file" accept="image/png, image/jpeg" multiple>
-                          <button id="buttonLogin" type="submit">Submit</button>
+                            <input type="hidden" name="course_prodi" value="{{ request.args.get('category') }}">
+                            <label for="name-course">Nama course</label>
+                            <input id="name-course" type="text" name="course_name" list="existing-course-list" placeholder="Masukan nama course" required>
+                            <datalist id="existing-course-list">
+                                {% for data in datas %}
+                                    <option value="{{ data['course_name'] }}">{{ data['course_name'] }}</option>
+                                {% endfor %}
+                            </datalist>
+                            <label for="tarif">Tarif per jam</label>
+                            <input id="tarif" type="number" min="0" step="100" name="hourly_fee" placeholder="Masukan tarif" required>
+                            <label for="deskripsi-course">Deskripsi course</label>
+                            <textarea id="deskripsi-course" name="course_description" rows="10" cols="39" placeholder="Masukan deskripsi course" required></textarea>
+                            <label class="mt-3" for="gambar">Masukan foto (opsional)</label>
+                            <input type="file" accept="image/png, image/jpeg" multiple>
+                            <button id="buttonLogin" type="submit">Submit</button>
                       </form>
                   </div>
               </div>
