@@ -52,7 +52,7 @@
             </div>
             <div class="popup">
               <div class="close-btn" onclick="closePopup()">&times;</div>
-              <form action="{{ url_for('auth.login') }}" method="post" id="login-form">
+              <form action="{{ url_for('auth.login') }}" method="post" id="login-form" autocomplete="off">
               <div class="form">
                 <h2>Masuk</h2>
                 {% for message in get_flashed_messages() %}

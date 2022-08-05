@@ -8,11 +8,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 hero-text">
-          <h1>Ayo, Temukan <span style="color: #33A18E;">Mentor dan Tutor</span> Yang <span style="color: #33A18E">Terbaik</span> di Bidangnya </h1>
-          <p class="mb-4">belajar kapanpun, dimanapun, tanpa batas</p>
+          <h1>Ayo, Temukan <span style="color: #33A18E;">Mentor Tutor</span> Yang <span style="color: #33A18E">Terbaik</span> di Bidangnya </h1>
+          <p>belajar kapanpun, dimanapun, tanpa batas</p>
           <form action="{{ url_for('course.search') }}" method="get">
-            <input type="search" name="query" placeholder="Cari...">
-            <button type="submit" class="mt-4 btn join">Cari Tutor</button>
+            <input type="search" name="query" placeholder="Cari..." autocomplete="off">
+            <label class="icon">
+              <!-- <span><i class='bx bx-search'></i></span> -->
+            </label>
+            <button type="submit" class="btn join">Cari Tutor</button>
           </form>
         </div>
         <div class="col-md-6 hero-image">
@@ -192,7 +195,11 @@
           <h1>Mari Bergabung Bersama Kami !!!</h1>
         </div>
         <div class="col-md-6 text-end">
-          <a class="btn join">Gabung</a>
+          {% if g.user == None %}
+            <a class="btn join" href="{{ url_for('auth.register') }}">Gabung</a>
+          {% else %}
+            <a class="btn join" href="{{ url_for('tutor.create.course') }}">Gabung</a>
+          {% endif %}
         </div>
       </div>
     </div>

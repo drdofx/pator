@@ -20,6 +20,7 @@ nav {
 
 .navbar {
     background-color: #ECF1F0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -232,10 +233,10 @@ a {
 /*=== Login  ===*/
 .popup {
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 50%;
     opacity: 0;
-    transform: translate(-50%,50%) scale(1.25);
+    transform: translate(-100%,-200%) scale(1.25);
     width: 380px;
     padding: 20px 30px;
     background: #fff;
@@ -247,9 +248,9 @@ a {
 }
 
 .popup.active {
-    top: 50%;
+    top: 30%;
     opacity: 1;
-    transform: translate(-50%,50%) scale(1);
+    transform: translate(-30%,40%) scale(1);
     transition: top 0ms ease-in-out 0ms,
                 opacity 200ms ease-in-out 0ms,
                 transform 200ms ease-in-out 0ms;
@@ -384,7 +385,8 @@ a {
     border-radius: 8px;
     border-style: none;
     color: #fff;
-    padding-top: 15px;
+    padding-top: 10px;
+    margin-bottom: 4px;
 }
 
 .hero-text .join {
@@ -708,6 +710,8 @@ a {
 
 .checkout .card {
     border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    
 }
 
 .checkout .card .card-title {
@@ -849,6 +853,7 @@ a {
     border-radius: 8px;
     width: 67%;
     height: 120px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .ulasan h6 {
@@ -936,7 +941,6 @@ a {
     width: 66%;
     height: auto;
     border-radius: 8px;
-
 }
 
 .pembayaran h5 {

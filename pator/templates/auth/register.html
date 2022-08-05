@@ -16,7 +16,7 @@
                             <div class="mb-2" style="color: green;">{{ message[1] }}</div>
                             {% endif %}
                         {% endfor %}
-                        <form id="loginForm" class="register" action="{{ url_for('auth.register' )}}" method="post">
+                        <form id="loginForm" class="register" action="{{ url_for('auth.register' )}}" method="post" autocomplete="off">
                             <label for="fullName">Nama lengkap</label>
                             <input id="fullName" type="name" name="name" placeholder="Masukan nama lengkap" value="{{ request.form['name'] }}" required>
                             <label for="inputEmail">Email</label>

@@ -10,7 +10,7 @@
                 <h1>Buat iklan tutor Anda sekarang!</h1>
                 <div class="card">
                   <div class="card-body">
-                      <form id="loginForm" class="register" action="{{ url_for('tutor.create.course_detail') }}" method="post">
+                      <form id="loginForm" class="register" action="{{ url_for('tutor.create.course_detail') }}" method="post" autocomplete="off">
                             <input type="hidden" name="course_prodi" value="{{ request.args.get('category') }}">
                             <label for="name-course">Nama course</label>
                             <input id="name-course" type="text" name="course_name" list="existing-course-list" placeholder="Masukan nama course" required>
