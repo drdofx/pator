@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Course Ad{% endblock %}
+
+{% block content %}
+<section class="tutor-iklan">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Buat iklan tutor Anda sekarang!</h1>
+                <div class="card">
+                  <div class="card-body">
+                      <form id="loginForm" class="register" action="{{ url_for('tutor.create.iklan') }}" method="get">
+                          <label for="prodi">Pilih kategori prodi mata kuliah</label>
+                          <select name="category" id="prodi" required>
+                                <option value="{{ g.user['prodi'] }}">{{ g.user['prodi'] }}</option>
+                                <option value="umum">Matakuliah Umum</option>
+                          </select>
+                          <br>
+                          <button id="buttonLogin" type="submit">Submit</button>
+                      </form>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

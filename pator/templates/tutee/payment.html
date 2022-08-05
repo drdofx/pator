@@ -7,7 +7,7 @@
  <!-- Pembayaran -->
  <section class="pembayaran d-flex flex-column justify-content-center align-items-center">
     <div class="container">
-            <div>{{ data }}</div>
+            <!-- <div>{{ data }}</div> -->
         <div class="row">
           <div class="col-md-4">
             <a href="{{ url_for('course.detail', id=data['course_tutor_id']) }}">
@@ -19,7 +19,7 @@
                     <h6 class="students">{{ data["name"] or 'Course Tutor' }}</h6>
                     <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars" id="stars"S>
                     <p>IDR</p>
-                    <p id="harga">{{ data['hourly_fee'] }}/jam</p>
+                    <p id="harga">{{ data['hourly_fee']|rupiah_format }}/jam</p>
                 </div>
               </div>
             </a>
@@ -31,10 +31,10 @@
                         <p>Harga</p>
                       </div>
                       <div class="col">
-                        <p class="text-end me-5">Rp {{ data['total_fee'] }}</p>
+                        <p class="text-end me-5">Rp {{ data['total_fee']|rupiah_format }}</p>
                       </div>
                     </div>
-                    <p>Tipe pembayaran</p>
+                    <p>Metode pembayaran</p>
                     <div class="tipe">
                         <button id="btn-ovo" class="btn"><span><img src="{{ url_for('static', filename='assests/images/pembayaran/ovo.png') }}" alt="ovo"></span></button>
                         <button id="btn-gopay" class="btn"><span><img src="{{ url_for('static', filename='assests/images/pembayaran/gopay.png') }}" alt="gopay" width="120px"></span></button>

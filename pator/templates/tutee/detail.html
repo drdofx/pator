@@ -26,8 +26,8 @@
                             <p class="card-text mt-2">Jumlah murid</p> 
                           </div>
                           <div class="col isi">
-                            <p class="text-end">Rp{{ data["hourly_fee"] or '-' }}</p>
-                            <input id="hours" type="number" name="hours" value="1" required>
+                            <p class="text-end">Rp{{ data["hourly_fee"]|rupiah_format or '-' }}</p>
+                            <input id="hours" type="number" name="hours" min="1" value="1" required>
                             <p class="text-end mt-3">50</p>
                           </div>
                           <!-- <input type="hidden" name="course_tutor_id" value="data['course_tutor_id']"> -->
@@ -59,7 +59,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 deskripsi">
-        <h5>Tentang kursus</h5>
+        <h5>Tentang course {{ data["course_name"] or 'Course Name' }} oleh {{ data["name"] or 'Course Tutor' }}</h5>
         <p>{{ data["course_description"] or 'Course Description' }}</p>
         <div class="desk-course">
           <i class='bx bx-book-alt'></i>
@@ -93,7 +93,7 @@
             <h5>Ulasan</h5>
 
         <div class="row">
-            <div class="col-md-8 mb-3"
+            <div class="col-md-8 mb-3 mt-3">
                 <h6>Naruto</h6>
                 <img src="{{ url_for('static', filename='assests/images/categories/stars.png') }}" alt="stars">
                 <p>keren banget. tutornya sabar.</p>
