@@ -45,7 +45,7 @@
                                 <label for="inputEmail">Email</label>
                                 <input id="inputNumber" type="email" name="number" value="{{ g.user['email'] }}" disabled>
                                 <label for="deskripsi-diri">Deskripsi diri</label>
-                                <textarea id="deskripsi-diri" name="self_description" rows="10" cols="39" required>{{ tutor['self_description'] }}</textarea>
+                                <textarea id="deskripsi-diri" name="self_description" rows="10" cols="39" required>{{ tutor['self_description'] or '' }}</textarea>
                                 <button id="buttonLogin" type="submit">Submit</button>
                             </form>
                             </div>
