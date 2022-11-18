@@ -5,11 +5,12 @@
 ## Installation
 
 **Install Flask**
+Anaconda:
 ```
 conda install -c conda-forge flask
-
-or
-
+```
+Pip:
+```
 pip install Flask
 ``` 
 **Clone repo**
