@@ -4,34 +4,37 @@
 
 ## Installation
 
-- **Install Flask**
+**Install Flask**
 ```
 conda install -c conda-forge flask
+
+or
+
 pip install Flask
 ``` 
-- **Clone repo**
+**Clone repo**
 ```
 git clone git@github.com:drdofx/pator.git
 ``` 
-- **Cd to repo**
+**Cd to repo**
 ```
 cd pator
 ```
-- **Make .env from .env.example**
+**Make .env from .env.example**
 ```
 cp .env.example .env
 ```
-- **Input MySQL database, username, and password to .env**
-- **Add necessary environment variables**
+**Input MySQL database, username, and password to .env**
+**Add necessary environment variables**
 ```
 export FLASK_APP=pator
 export FLASK_ENV=development 
 ```
-- **Run init_db command**
+**Run init_db command**
 ```
 flask init-db
 ```
-- **Run the application**
+**Run the application**
 ```
 flask run
 ```
