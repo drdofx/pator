@@ -5,6 +5,7 @@
 ## Installation
 
 **Install Flask**
+
 Anaconda:
 ```
 conda install -c conda-forge flask
